@@ -11,7 +11,7 @@ let b:current_syntax = "zig"
 syn keyword zigStorage const var extern packed export pub noalias inline comptime nakedcc coldcc volatile
 syn keyword zigStructure struct enum union
 syn keyword zigStatement goto break return continue asm defer unreachable
-syn keyword zigConditional if else switch try and or
+syn keyword zigConditional if else switch and or
 syn keyword zigRepeat while for
 
 syn keyword zigConstant null undefined this
