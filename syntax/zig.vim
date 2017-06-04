@@ -18,7 +18,7 @@ syn keyword zigConstant null undefined this
 syn keyword zigKeyword fn use test
 syn keyword zigType bool f32 f64 void noreturn type error
 syn keyword zigType i8  u8  i16  u16  i32  u32  i64  u64  isize  usize
-syn keyword zigType c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ulonglong c_longdouble
+syn keyword zigType c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ulonglong c_longdouble c_void
 
 syn keyword zigBoolean true false
 
