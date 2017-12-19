@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 let b:current_syntax = "zig"
 
-syn keyword zigStorage const var extern packed export pub noalias inline comptime nakedcc coldcc stdcallcc volatile align
+syn keyword zigStorage const var extern packed export pub noalias inline comptime nakedcc coldcc stdcallcc volatile align section
 syn keyword zigStructure struct enum union
 syn keyword zigStatement goto break return continue asm defer unreachable
 syn keyword zigConditional if else switch and or
