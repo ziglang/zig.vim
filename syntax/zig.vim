@@ -10,7 +10,7 @@ let b:current_syntax = "zig"
 
 syn keyword zigStorage const var extern packed export pub noalias inline comptime nakedcc stdcallcc volatile align section
 syn keyword zigStructure struct enum union
-syn keyword zigStatement break return continue asm defer unreachable try catch
+syn keyword zigStatement break return continue asm defer errdefer unreachable try catch
 syn keyword zigConditional if else switch and or
 syn keyword zigRepeat while for
 
