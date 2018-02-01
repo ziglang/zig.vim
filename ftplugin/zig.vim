@@ -6,6 +6,7 @@ endif
 let b:did_ftplugin = 1
 
 set expandtab
+set cindent
 set tabstop=4
 set shiftwidth=4
 
