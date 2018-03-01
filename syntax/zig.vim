@@ -39,7 +39,7 @@ syn match zigBuiltinFn "\v\@(ptrToInt|rem|returnAddress|setCold)>"
 syn match zigBuiltinFn "\v\@(setRuntimeSafety|setEvalBranchQuota|setFloatMode)>"
 syn match zigBuiltinFn "\v\@(setGlobalLinkage|setGlobalSection|shlExact)>"
 syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|subWithOverflow)>"
-syn match zigBuiltinFn "\v\@(truncate|typeId|typeName|typeOf)>"
+syn match zigBuiltinFn "\v\@(truncate|typeId|typeName|typeOf|atomicRmw)>"
 
 syn match zigDecNumber display "\<[0-9]\+\%(.[0-9]\+\)\=\%([eE][+-]\?[0-9]\+\)\="
 syn match zigHexNumber display "\<0x[a-fA-F0-9]\+\%([a-fA-F0-9]\+\%([pP][+-]\?[0-9]\+\)\?\)\="
