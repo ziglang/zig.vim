@@ -7,5 +7,5 @@ File detection and syntax highlighting for the
 
 Using [vim-plug](https://github.com/junegunn/vim-plug).
 
- * Add `Plug 'andrewrk/zig.vim'` to your `.vimrc`
+ * Add `Plug 'zig-lang/zig.vim'` to your `.vimrc`
  * PlugInstall
