@@ -25,7 +25,7 @@ syn keyword zigBoolean true false
 syn match zigOperator display "\%(+%\?\|-%\?\|/\|*%\?\|=\|\^\|&\|?\||\|!\|>\|<\|%\|<<%\?\|>>\)=\?"
 syn match zigArrowCharacter display "->"
 
-syn match zigBuiltinFn "\v\@(addWithOverflow|ArgType|bitCast|breakpoint)>"
+syn match zigBuiltinFn "\v\@(addWithOverflow|ArgType|atomicLoad|bitCast|breakpoint)>"
 syn match zigBuiltinFn "\v\@(alignCast|alignOf|cDefine|cImport|cInclude)>"
 syn match zigBuiltinFn "\v\@(cUndef|canImplicitCast|clz|cmpxchg|compileError)>"
 syn match zigBuiltinFn "\v\@(compileLog|ctz|divExact|divFloor|divTrunc)>"
