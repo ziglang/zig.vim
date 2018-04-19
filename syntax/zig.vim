@@ -55,12 +55,11 @@ syn match zigCharacter /'\([^\\]\|\\\(.\|x\x\{2}\|u\x\{4}\|U\x\{6}\)\)'/ contain
 syn region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
 syn region zigCommentLineDoc start="////\@!" end="$" contains=zigTodo,@Spell
 
-" match only the first '\\' within the zigMultilineString as zigMultilineStringPrefix
-syn match zigMultilineStringPrefix display contained /c\?\\\\/ nextgroup=zigMultilineStringContent
-syn region zigMultilineStringContent start="." end="$" contained
+" TODO: match only the first '\\' within the zigMultilineString as zigMultilineStringPrefix
+syn match zigMultilineStringPrefix display contained /c\?\\\\/
 syn region zigMultilineString start="c\?\\\\" end="$" contains=zigMultilineStringPrefix
 
-syn keyword zigTodo contained TODO XXX
+syn keyword zigTodo contained TODO
 
 syn match     zigEscapeError   display contained /\\./
 syn match     zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
