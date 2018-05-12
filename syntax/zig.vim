@@ -31,7 +31,7 @@ syn match zigBuiltinFn "\v\@(cUndef|canImplicitCast|clz|cmpxchgWeak|cmpxchgStron
 syn match zigBuiltinFn "\v\@(compileLog|ctz|divExact|divFloor|divTrunc)>"
 syn match zigBuiltinFn "\v\@(embedFile|export|tagName|TagType|errorName)>"
 syn match zigBuiltinFn "\v\@(errorReturnTrace|fence|fieldParentPtr|field)>"
-syn match zigBuiltinFn "\v\@(frameAddress|import|inlineCall|intToPtr|IntType)>"
+syn match zigBuiltinFn "\v\@(frameAddress|import|inlineCall|newStackCall|intToPtr|IntType)>"
 syn match zigBuiltinFn "\v\@(maxValue|memberCount|memberName|memberType)>"
 syn match zigBuiltinFn "\v\@(memcpy|memset|minValue|mod|mulWithOverflow)>"
 syn match zigBuiltinFn "\v\@(noInlineCall|offsetOf|OpaqueType|panic|ptrCast)>"
