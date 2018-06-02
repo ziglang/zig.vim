@@ -146,9 +146,8 @@ function! zig#util#Exec(cmd, ...) abort
 
   let l:bin = a:cmd[0]
 
-  " CheckBinPath will show a warning for us.
-  let l:bin = zig#path#CheckBinPath(l:bin)
-  if empty(l:bin)
+  if !executable(l:bin)
+    call zig#util#EchoError(printf("could not find binary '%s'", a:cmd[0]))
     return ['', 1]
   endif
 
