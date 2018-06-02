@@ -23,7 +23,7 @@ function! zig#config#SetFmtAutosave(value) abort
 endfunction
 
 function! zig#config#FmtCommand() abort
-  return get(g:, "zig_fmt_command", ['zig', 'fmt'])
+  return get(g:, "zig_fmt_command", ['zig', 'fmt', '--color', 'off'])
 endfunction
 
 function! zig#config#FmtFailSilently() abort
@@ -32,10 +32,6 @@ endfunction
 
 function! zig#config#FmtExperimental() abort
   return get(g:, "zig_fmt_experimental", 0)
-endfunction
-
-function! zig#config#BinPath() abort
-  return get(g:, "zig_bin_path", "/usr/bin")
 endfunction
 
 function! zig#config#Debug() abort

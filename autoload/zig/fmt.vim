@@ -35,28 +35,26 @@ function! zig#fmt#Format() abort
   " Save cursor position and many other things.
   let l:curw = winsaveview()
 
-  " Write current unsaved buffer to a temp file
-  let l:tmpname = tempname() . '.zig'
-  call writefile(zig#util#GetLines(), l:tmpname)
-  if zig#util#IsWin()
-    let l:tmpname = tr(l:tmpname, '\', '/')
-  endif
-
   let bin_name = zig#config#FmtCommand()
 
+  " Get current position in file
   let current_col = col('.')
-  let [l:out, l:err] = zig#fmt#run(bin_name, l:tmpname, expand('%'))
-  let diff_offset = len(readfile(l:tmpname)) - line('$')
+  let orig_line_count = line('$')
+
+  " Save current buffer first, else fmt will run on the original file and we
+  " will lose our changes.
+  silent! execute 'write' expand('%')
+
+  let [l:out, l:err] = zig#fmt#run(bin_name, expand('%'))
 
   if l:err == 0
-    call zig#fmt#update_file(l:tmpname, expand('%'))
+    call zig#fmt#update_file(expand('%'))
   elseif !zig#config#FmtFailSilently()
     let errors = s:parse_errors(expand('%'), out)
     call s:show_errors(errors)
   endif
 
-  " We didn't use the temp file, so clean up
-  call delete(l:tmpname)
+  let diff_offset = line('$') - orig_line_count
 
   if zig#config#FmtExperimental()
     " restore our undo history
@@ -82,28 +80,12 @@ function! zig#fmt#Format() abort
 endfunction
 
 " update_file updates the target file with the given formatted source
-function! zig#fmt#update_file(source, target)
+function! zig#fmt#update_file(target)
   " remove undo point caused via BufWritePre
   try | silent undojoin | catch | endtry
 
-  let old_fileformat = &fileformat
-  if exists("*getfperm")
-    " save file permissions
-    let original_fperm = getfperm(a:target)
-  endif
-
-  call rename(a:source, a:target)
-
-  " restore file permissions
-  if exists("*setfperm") && original_fperm != ''
-    call setfperm(a:target , original_fperm)
-  endif
-
   " reload buffer to reflect latest changes
   silent edit!
-
-  let &fileformat = old_fileformat
-  let &syntax = &syntax
 
   let l:listtype = zig#list#Type("ZigFmt")
 
@@ -128,10 +110,10 @@ endfunction
 
 " run runs the gofmt/goimport command for the given source file and returns
 " the output of the executed command. Target is the real file to be formatted.
-function! zig#fmt#run(bin_name, source, target)
+function! zig#fmt#run(bin_name, target)
   let l:cmd = []
   call extend(cmd, a:bin_name)
-  call extend(cmd, [a:source, a:target])
+  call extend(cmd, [a:target])
   return zig#util#Exec(l:cmd)
 endfunction
 
