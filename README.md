@@ -5,7 +5,7 @@ File detection and syntax highlighting for the
 
 ## Installation
 
-Using [vim-plug](https://github.com/junegunn/vim-plug).
-
- * Add `Plug 'zig-lang/zig.vim'` to your `.vimrc`
- * PlugInstall
+ * Use Vim 8 or newer
+ * `mkdir -p ~/.vim/pack/plugins/start/`
+ * `cd ~/.vim/pack/plugins/start/`
+ * `git clone https://github.com/ziglang/zig.vim`
