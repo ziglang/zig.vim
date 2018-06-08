@@ -15,7 +15,6 @@ File detection and syntax highlighting for the
 To enable automatic formatting on save, follow these steps:
 
  * Build the zig [stage 2 compiler](https://github.com/ziglang/zig#stage-2-build-self-hosted-zig-from-zig-source-code).
- * Copy the resulting binary into your path.
  * Add the following configuration to your vimrc, where `zig2` is the stage 2
    compiler binary:
 
