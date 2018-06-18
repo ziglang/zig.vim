@@ -38,7 +38,7 @@ syn match zigBuiltinFn "\v\@(noInlineCall|offsetOf|OpaqueType|panic|ptrCast)>"
 syn match zigBuiltinFn "\v\@(ptrToInt|rem|returnAddress|setCold)>"
 syn match zigBuiltinFn "\v\@(setRuntimeSafety|setEvalBranchQuota|setFloatMode)>"
 syn match zigBuiltinFn "\v\@(setGlobalLinkage|setGlobalSection|shlExact)>"
-syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|subWithOverflow)>"
+syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|subWithOverflow|intCast|floatCast|intToFloat|floatToInt)>"
 syn match zigBuiltinFn "\v\@(truncate|typeId|typeInfo|typeName|typeOf|atomicRmw)>"
 
 syn match zigDecNumber display "\<[0-9]\+\%(.[0-9]\+\)\=\%([eE][+-]\?[0-9]\+\)\="
