@@ -22,7 +22,7 @@ syn keyword zigType c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ul
 
 syn keyword zigBoolean true false
 
-syn match zigType "\v[iu][1-9]\d*>"
+syn match zigType "\v<[iu][1-9]\d*>"
 
 syn match zigOperator display "\%(+%\?\|-%\?\|/\|*%\?\|=\|\^\|&\|?\||\|!\|>\|<\|%\|<<%\?\|>>\)=\?"
 syn match zigArrowCharacter display "->"
