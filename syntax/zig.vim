@@ -9,14 +9,14 @@ endif
 let b:current_syntax = "zig"
 
 syn keyword zigStorage const var extern packed export pub noalias inline comptime nakedcc stdcallcc volatile align section
-syn keyword zigStructure struct enum union
+syn keyword zigStructure struct enum union error
 syn keyword zigStatement break return continue asm defer errdefer unreachable try catch async await suspend resume cancel
 syn keyword zigConditional if else switch and or orelse
 syn keyword zigRepeat while for
 
 syn keyword zigConstant null undefined
 syn keyword zigKeyword fn use test
-syn keyword zigType bool f16 f32 f64 f128 void noreturn type error promise
+syn keyword zigType bool f16 f32 f64 f128 void noreturn type anyerror promise
 syn keyword zigType i0 u0 isize  usize comptime_int comptime_float
 syn keyword zigType c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ulonglong c_longdouble c_void
 
