@@ -40,7 +40,7 @@ syn match zigBuiltinFn "\v\@(noInlineCall|bitOffsetOf|byteOffsetOf|OpaqueType|pa
 syn match zigBuiltinFn "\v\@(ptrToInt|rem|returnAddress|setCold)>"
 syn match zigBuiltinFn "\v\@(setRuntimeSafety|setEvalBranchQuota|setFloatMode)>"
 syn match zigBuiltinFn "\v\@(setGlobalLinkage|setGlobalSection|shlExact|This)>"
-syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|subWithOverflow|intCast|floatCast|intToFloat|floatToInt|boolToInt|errSetCast)>"
+syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|bswap|subWithOverflow|intCast|floatCast|intToFloat|floatToInt|boolToInt|errSetCast)>"
 syn match zigBuiltinFn "\v\@(truncate|typeId|typeInfo|typeName|typeOf|atomicRmw|bytesToSlice|sliceToBytes)>"
 syn match zigBuiltinFn "\v\@(intToError|errorToInt|intToEnum|enumToInt|setAlignStack|handle)>"
 
