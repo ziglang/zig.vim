@@ -42,7 +42,7 @@ syn match zigBuiltinFn "\v\@(setRuntimeSafety|setEvalBranchQuota|setFloatMode)>"
 syn match zigBuiltinFn "\v\@(setGlobalLinkage|setGlobalSection|shlExact|This)>"
 syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|bswap|subWithOverflow|intCast|floatCast|intToFloat|floatToInt|boolToInt|errSetCast)>"
 syn match zigBuiltinFn "\v\@(truncate|typeId|typeInfo|typeName|typeOf|atomicRmw|bytesToSlice|sliceToBytes)>"
-syn match zigBuiltinFn "\v\@(intToError|errorToInt|intToEnum|enumToInt|setAlignStack|handle)>"
+syn match zigBuiltinFn "\v\@(intToError|errorToInt|intToEnum|enumToInt|setAlignStack|handle|bitreverse)>"
 
 syn match zigDecNumber display "\<[0-9]\+\%(.[0-9]\+\)\=\%([eE][+-]\?[0-9]\+\)\="
 syn match zigHexNumber display "\<0x[a-fA-F0-9]\+\%([a-fA-F0-9]\+\%([pP][+-]\?[0-9]\+\)\?\)\="
