@@ -16,7 +16,7 @@ syn keyword zigRepeat while for
 
 syn keyword zigConstant null undefined
 syn keyword zigKeyword fn usingnamespace test
-syn keyword zigType bool f16 f32 f64 f128 void noreturn type anyerror promise
+syn keyword zigType bool f16 f32 f64 f128 void noreturn type anyerror anyframe
 syn keyword zigType i0 u0 isize  usize comptime_int comptime_float
 syn keyword zigType c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ulonglong c_longdouble c_void
 
