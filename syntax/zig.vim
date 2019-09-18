@@ -37,7 +37,7 @@ syn match zigBuiltinFn "\v\@(frameAddress|import|inlineCall|newStackCall|asyncCa
 syn match zigBuiltinFn "\v\@(maxValue|memberCount|memberName|memberType)>"
 syn match zigBuiltinFn "\v\@(memcpy|memset|minValue|mod|mulWithOverflow)>"
 syn match zigBuiltinFn "\v\@(noInlineCall|bitOffsetOf|byteOffsetOf|OpaqueType|panic|ptrCast)>"
-syn match zigBuiltinFn "\v\@(ptrToInt|rem|returnAddress|setCold|Type)>"
+syn match zigBuiltinFn "\v\@(ptrToInt|rem|returnAddress|setCold|Type|shuffle)>"
 syn match zigBuiltinFn "\v\@(setRuntimeSafety|setEvalBranchQuota|setFloatMode)>"
 syn match zigBuiltinFn "\v\@(setGlobalLinkage|setGlobalSection|shlExact|This|hasDecl|hasField)>"
 syn match zigBuiltinFn "\v\@(shlWithOverflow|shrExact|sizeOf|sqrt|byteSwap|subWithOverflow|intCast|floatCast|intToFloat|floatToInt|boolToInt|errSetCast)>"
