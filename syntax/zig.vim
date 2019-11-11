@@ -56,6 +56,8 @@ syn match zigCharacterInvalidUnicode display contained /b'\zs[^[:cntrl:][:graph:
 syn match zigCharacter /b'\([^\\]\|\\\(.\|x\x\{2}\)\)'/ contains=zigEscape,zigEscapeError,zigCharacterInvalid,zigCharacterInvalidUnicode
 syn match zigCharacter /'\([^\\]\|\\\(.\|x\x\{2}\|u\x\{4}\|U\x\{6}\)\)'/ contains=zigEscape,zigEscapeUnicode,zigEscapeError,zigCharacterInvalid
 
+syn region zigBlock start="{" end="}" transparent fold
+
 syn region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
 syn region zigCommentLineDoc start="////\@!" end="$" contains=zigTodo,@Spell
 
