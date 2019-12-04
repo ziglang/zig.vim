@@ -31,7 +31,7 @@ syn match zigBuiltinFn "\v\@(addWithOverflow|ArgType|atomicLoad|bitCast|breakpoi
 syn match zigBuiltinFn "\v\@(alignCast|alignOf|cDefine|cImport|cInclude)>"
 syn match zigBuiltinFn "\v\@(cUndef|canImplicitCast|clz|cmpxchgWeak|cmpxchgStrong|compileError)>"
 syn match zigBuiltinFn "\v\@(compileLog|ctz|popCount|divExact|divFloor|divTrunc)>"
-syn match zigBuiltinFn "\v\@(embedFile|export|tagName|TagType|errorName)>"
+syn match zigBuiltinFn "\v\@(embedFile|export|tagName|TagType|errorName|call)>"
 syn match zigBuiltinFn "\v\@(errorReturnTrace|fence|fieldParentPtr|field|unionInit)>"
 syn match zigBuiltinFn "\v\@(frameAddress|import|inlineCall|newStackCall|asyncCall|intToPtr|IntType)>"
 syn match zigBuiltinFn "\v\@(maxValue|memberCount|memberName|memberType|as)>"
