@@ -27,7 +27,7 @@ syn match zigType "\v<[iu][1-9]\d*>"
 syn match zigOperator display "\%(+%\?\|-%\?\|/\|*%\?\|=\|\^\|&\|?\||\|!\|>\|<\|%\|<<%\?\|>>\)=\?"
 syn match zigArrowCharacter display "->"
 
-syn match zigBuiltinFn "\v\@(addWithOverflow|ArgType|atomicLoad|bitCast|breakpoint)>"
+syn match zigBuiltinFn "\v\@(addWithOverflow|ArgType|atomicLoad|atomicStore|bitCast|breakpoint)>"
 syn match zigBuiltinFn "\v\@(alignCast|alignOf|cDefine|cImport|cInclude)>"
 syn match zigBuiltinFn "\v\@(cUndef|canImplicitCast|clz|cmpxchgWeak|cmpxchgStrong|compileError)>"
 syn match zigBuiltinFn "\v\@(compileLog|ctz|popCount|divExact|divFloor|divTrunc)>"
