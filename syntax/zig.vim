@@ -45,8 +45,9 @@ syn match zigBuiltinFn "\v\@(truncate|typeId|typeInfo|typeName|TypeOf|atomicRmw|
 syn match zigBuiltinFn "\v\@(intToError|errorToInt|intToEnum|enumToInt|setAlignStack|frame|Frame|frameSize|bitReverse|Vector)>"
 syn match zigBuiltinFn "\v\@(sin|cos|exp|exp2|log|log2|log10|fabs|floor|ceil|trunc|round)>"
 
-syn match zigDecNumber display   "\v<\d%(_?\d)*\.?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
-syn match zigHexNumber display "\v<0x\x%(_?\x)*\.?%(\x%(_?\x)*)?%([pP][+-]?\d%(_?\d)*)?"
+"                                     12_34  (. but not ..)? (12_34)?     (exponent  12_34)?
+syn match zigDecNumber display   "\v<\d%(_?\d)*%(\.\.@!)?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
+syn match zigHexNumber display "\v<0x\x%(_?\x)*%(\.\.@!)?%(\x%(_?\x)*)?%([pP][+-]?\d%(_?\d)*)?"
 syn match zigOctNumber display "\v<0o\o%(_?\o)*"
 syn match zigBinNumber display "\v<0b[01]%(_?[01])*"
 
