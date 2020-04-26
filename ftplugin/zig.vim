@@ -10,5 +10,6 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 
 setlocal suffixesadd=.zig
+setlocal suffixesadd=.zir
 setlocal commentstring=//\ %s
 setlocal makeprg=zig\ build
