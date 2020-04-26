@@ -46,5 +46,5 @@ hi def link zirHexNumber Constant
 hi def link zirOctNumber Constant
 hi def link zirBinNumber Constant
 
-hi def link zirGlobal Constant
+hi def link zirGlobal Ignore
 hi def link zirLocal  Identifier
