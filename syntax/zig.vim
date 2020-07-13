@@ -24,8 +24,8 @@ syn keyword zigBoolean true false
 
 syn match zigType "\v<[iu][1-9]\d*>"
 
-syn match zigOperator display "\%(+%\?\|-%\?\|/\|*%\?\|=\|\^\|&\|?\||\|!\|>\|<\|%\|<<%\?\|>>\)=\?"
-syn match zigArrowCharacter display "->"
+syn match zigOperator display "\V\[-+/*=^&?|!><%~]"
+syn match zigArrowCharacter display "\V->"
 
 syn match zigBuiltinFn "\v\@(addWithOverflow|as|atomicLoad|atomicStore|bitCast|breakpoint)>"
 syn match zigBuiltinFn "\v\@(alignCast|alignOf|cDefine|cImport|cInclude)>"
