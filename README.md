@@ -16,6 +16,9 @@ If using **Neovim**:
  * `cd ~/.local/share/nvim/site/pack/plugins/start/`
  * `git clone https://github.com/ziglang/zig.vim`
 
+If using **vim-plug**:
+ * Add `Plug 'ziglang/zig.vim'` to your config
+
 ## Configuration
 
 This plugin enables automatic code formatting on save by default using
