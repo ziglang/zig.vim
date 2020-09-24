@@ -34,7 +34,7 @@ let &l:define='\v(<fn>|<const>|<var>|^\s*\#\s*define)'
 if exists("*json_decode") && executable('zig')
     silent let s:env = system('zig env')
     if v:shell_error == 0
-        let &l:path=json_decode(s:env)['std_dir'] . ',' . &l:path
+        let &l:path=json_decode(s:env)['std_dir'] . ',' . [&l:path, &g:path][empty(&l:path)]
     endif
     unlet! s:env
 endif
