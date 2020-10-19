@@ -25,7 +25,7 @@ if has('comments')
 endif
 
 if has('find_in_path')
-    let &l:includeexpr='substitute(v:fname, "^([^.])$", "\1.zig", "")'
+    let &l:includeexpr='substitute(v:fname, "^std$", "std.zig", "")'
     let &l:include='\v(\@import>|\@cInclude>|^\s*\#\s*include)'
 endif
 
