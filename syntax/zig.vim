@@ -20,7 +20,6 @@ let s:zig_syntax_keywords = {
     \ , 'zigStatement': ["return"
     \ ,                  "break"
     \ ,                  "continue"
-    \ ,                  "try"
     \ ,                  "asm"
     \ ,                  "defer"
     \ ,                  "errdefer"
@@ -29,10 +28,10 @@ let s:zig_syntax_keywords = {
     \ ,                  "await"
     \ ,                  "suspend"
     \ ,                  "resume"]
-    \ , 'zigSpecial': ["pub"
-    \ ,                "export"
+    \ , 'zigSpecial': ["export"
     \ ,                "extern"]
-    \ , 'zigException': ["error"]
+    \ , 'zigException': ["try"
+    \ ,                  "error"]
     \ , 'zigPreProc': ["catch"
     \ ,                "inline"
     \ ,                "noinline"]
@@ -47,14 +46,15 @@ let s:zig_syntax_keywords = {
     \ , 'zigRepeat': ["while"
     \ ,               "for"]
     \ , 'zigKeyword': ["fn"
+    \ ,                "pub"
+    \ ,                "test"
     \ ,                "usingnamespace"]
     \ , 'zigStructure': ["packed"
     \ ,                  "struct"
     \ ,                  "enum"
     \ ,                  "union"
     \ ,                  "opaque"]
-    \ , 'zigCompTime': ["comptime"
-    \ ,                 "test"]
+    \ , 'zigMacro': ["comptime"]
     \ , 'zigType': ["bool"
     \ ,             "f16"
     \ ,             "f32"
@@ -84,9 +84,9 @@ let s:zig_syntax_keywords = {
     \ , 'zigBoolean': ["true"
     \ ,                "false"
     \ ,                "null"]
-    \ , 'zigMacro': ["var"
-    \ ,              "const"
-    \ ,              "threadlocal"]
+    \ , 'zigVarDecl': ["var"
+    \ ,                "const"
+    \ ,                "threadlocal"]
     \ , 'zigBuiltinFn': ["align"
     \ ,                  "@add"
     \ ,                  "@WithOverflow"
@@ -251,7 +251,7 @@ highlight default link zigCommentLineDoc Comment
 highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
-highlight default link zigStringDelimiter StorageClass
+highlight default link zigStringDelimiter Delimiter
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
 highlight default link zigMultilineStringPrefix String
@@ -277,7 +277,7 @@ highlight default link zigSpecial Special
 highlight default link zigMacro Macro
 highlight default link zigPreProc PreProc
 highlight default link zigException Exception
-highlight default link zigCompTime Delimiter
+highlight default link zigVarDecl Delimiter
 
 delfunction s:syntax_keyword
 
