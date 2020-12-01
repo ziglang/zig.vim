@@ -11,53 +11,51 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 let s:zig_syntax_keywords = {
-    \   'zigStorage': ["const"
-    \ ,                "extern"
-    \ ,                "packed"
-    \ ,                "export"
+    \   'zigStorage': ["packed"
     \ ,                "noalias"
-    \ ,                "inline"
-    \ ,                "noinline"
-    \ ,                "comptime"
     \ ,                "callconv"
     \ ,                "volatile"
     \ ,                "allowzero"
-    \ ,                "align"
     \ ,                "linksection"
     \ ,                "threadlocal"
     \ ,                "anytype"]
-    \ , 'zigStructure': ["struct"
-    \ ,                  "enum"
-    \ ,                  "union"
-    \ ,                  "error"
-    \ ,                  "opaque"]
-    \ , 'zigStatement': ["break"
-    \ ,                  "return"
+    \ , 'zigStructure': ["error"]
+    \ , 'zigStatement': ["return"
+    \ ,                  "break"
     \ ,                  "continue"
     \ ,                  "asm"
     \ ,                  "defer"
     \ ,                  "errdefer"
-    \ ,                  "unreachable"
-    \ ,                  "try"
-    \ ,                  "catch"
     \ ,                  "async"
     \ ,                  "nosuspend"
     \ ,                  "await"
     \ ,                  "suspend"
     \ ,                  "resume"]
+    \ , 'zigSpecial': ["pub"
+    \ ,                "export"
+    \ ,                "extern"]
+    \ , 'zigException': ["try"]
+    \ , 'zigPreProc': ["catch"
+    \ ,                "inline"
+    \ ,                "noinline"]
     \ , 'zigConditional': ["if"
     \ ,                    "else"
     \ ,                    "switch"]
+    \ , 'zigConstant': ["undefined"
+    \ ,                 "unreachable"]
     \ , 'zigComparatorWord': ["and"
     \ ,                       "or"
     \ ,                       "orelse"]
     \ , 'zigRepeat': ["while"
     \ ,               "for"]
     \ , 'zigKeyword': ["fn"
-    \ ,                "pub"
-    \ ,                "var"
     \ ,                "usingnamespace"
-    \ ,                "test"]
+    \ ,                "struct"
+    \ ,                "enum"
+    \ ,                "union"
+    \ ,                "opaque"]
+    \ , 'zigCompTime': ["comptime"
+    \ ,                 "test"]
     \ , 'zigType': ["bool"
     \ ,             "f16"
     \ ,             "f32"
@@ -86,9 +84,11 @@ let s:zig_syntax_keywords = {
     \ ,             "c_void"]
     \ , 'zigBoolean': ["true"
     \ ,                "false"
-    \ ,                "null"
-    \ ,                "undefined"]
-    \ , 'zigBuiltinFn': ["@add"
+    \ ,                "null"]
+    \ , 'zigMacro': ["var"
+    \ ,              "const"]
+    \ , 'zigBuiltinFn': ["align"
+    \ ,                  "@add"
     \ ,                  "@WithOverflow"
     \ ,                  "@as"
     \ ,                  "@atomicLoad"
@@ -248,7 +248,7 @@ highlight default link zigBuiltinFn Function
 highlight default link zigKeyword Keyword
 highlight default link zigType Type
 highlight default link zigCommentLine Comment
-highlight default link zigCommentLineDoc SpecialComment
+highlight default link zigCommentLineDoc Comment
 highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
@@ -271,8 +271,13 @@ highlight default link zigStorage StorageClass
 highlight default link zigStructure Structure
 highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
-highlight default link zigComparatorWord Function
+highlight default link zigComparatorWord Operator
 highlight default link zigRepeat Repeat
+highlight default link zigSpecial Special
+highlight default link zigMacro Macro
+highlight default link zigPreProc PreProc
+highlight default link zigException Exception
+highlight default link zigCompTime Delimiter
 
 delfunction s:syntax_keyword
 
