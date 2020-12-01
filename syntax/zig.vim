@@ -247,10 +247,10 @@ syntax region zigMultilineString start="c\?\\\\" end="$" contains=zigMultilineSt
 
 syntax keyword zigTodo contained TODO
 
-syntax match     zigEscapeError   display contained /\\./
-syntax match     zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
-syntax match     zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
-syntax region    zigString      start=+c\?"+ skip=+\\\\\|\\"+ end=+"+ oneline contains=zigEscape,zigEscapeUnicode,zigEscapeError,@Spell
+syntax region zigString matchgroup=zigStringDelimiter start=+c\?"+ skip=+\\\\\|\\"+ end=+"+ oneline contains=zigEscape,zigEscapeUnicode,zigEscapeError,@Spell
+syntax match zigEscapeError   display contained /\\./
+syntax match zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
+syntax match zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
 
 highlight default link zigDecNumber zigNumber
 highlight default link zigHexNumber zigNumber
@@ -264,6 +264,7 @@ highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc SpecialComment
 highlight default link zigTodo Todo
 highlight default link zigString String
+highlight default link zigStringDelimiter Delimiter
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
 highlight default link zigMultilineStringPrefix Comment
