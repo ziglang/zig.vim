@@ -255,7 +255,7 @@ highlight default link zigString String
 highlight default link zigStringDelimiter StorageClass
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
-highlight default link zigMultilineStringPrefix Comment
+highlight default link zigMultilineStringPrefix Ignore
 highlight default link zigCharacterInvalid Error
 highlight default link zigCharacterInvalidUnicode zigCharacterInvalid
 highlight default link zigCharacter Character
