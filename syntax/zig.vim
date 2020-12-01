@@ -53,8 +53,6 @@ let s:zig_syntax_keywords = {
     \ ,                       "orelse"]
     \ , 'zigRepeat': ["while"
     \ ,               "for"]
-    \ , 'zigConstant': ["null"
-    \ ,                 "undefined"]
     \ , 'zigKeyword': ["fn"
     \ ,                "pub"
     \ ,                "var"
@@ -87,7 +85,9 @@ let s:zig_syntax_keywords = {
     \ ,             "c_longdouble"
     \ ,             "c_void"]
     \ , 'zigBoolean': ["true"
-    \ ,                "false"]
+    \ ,                "false"
+    \ ,                "null"
+    \ ,                "undefined"]
     \ , 'zigBuiltinFn': ["@add"
     \ ,                  "@WithOverflow"
     \ ,                  "@as"
