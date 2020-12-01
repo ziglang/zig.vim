@@ -249,6 +249,7 @@ highlight default link zigKeyword Keyword
 highlight default link zigType Type
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc SpecialComment
+highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
 highlight default link zigStringDelimiter StorageClass
