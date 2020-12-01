@@ -8,6 +8,9 @@ let b:did_ftplugin = 1
 let s:cpo_orig = &cpo
 set cpo&vim
 
+" Match Zig builtin fns
+setlocal iskeyword+=@-@
+
 " Recomended code style, no tabs and 4-space indentation
 setlocal expandtab
 setlocal tabstop=8
