@@ -12,11 +12,9 @@ set cpo&vim
 
 let s:zig_syntax_keywords = {
     \   'zigStorage': ["const"
-    \ ,                "var"
     \ ,                "extern"
     \ ,                "packed"
     \ ,                "export"
-    \ ,                "pub"
     \ ,                "noalias"
     \ ,                "inline"
     \ ,                "noinline"
@@ -58,6 +56,8 @@ let s:zig_syntax_keywords = {
     \ , 'zigConstant': ["null"
     \ ,                 "undefined"]
     \ , 'zigKeyword': ["fn"
+    \ ,                "pub"
+    \ ,                "var"
     \ ,                "usingnamespace"
     \ ,                "test"]
     \ , 'zigType': ["bool"
