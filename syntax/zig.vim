@@ -88,21 +88,6 @@ let s:zig_syntax_keywords = {
     \ ,             "c_void"]
     \ , 'zigBoolean': ["true"
     \ ,                "false"]
-    \ , 'zigOperator': ["-"
-    \ ,                 "+"
-    \ ,                 "/"
-    \ ,                 "*"
-    \ ,                 "="
-    \ ,                 "^"
-    \ ,                 "&"
-    \ ,                 "?"
-    \ ,                 "|"
-    \ ,                 "!"
-    \ ,                 ">"
-    \ ,                 "<"
-    \ ,                 "%"
-    \ ,                 "~"]
-    \ , 'zigArrowCharacter': ["->"]
     \ , 'zigBuiltinFn': ["@add"
     \ ,                  "@WithOverflow"
     \ ,                  "@as"
@@ -224,6 +209,8 @@ endfunction
 call s:syntax_keyword(s:zig_syntax_keywords)
 
 syntax match zigType "\v<[iu][1-9]\d*>"
+syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
+syntax match zigArrowCharacter display "\V->"
 
 "                                     12_34  (. but not ..)? (12_34)?     (exponent  12_34)?
 syntax match zigDecNumber display   "\v<\d%(_?\d)*%(\.\.@!)?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
