@@ -11,8 +11,7 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 let s:zig_syntax_keywords = {
-    \   'zigStorage': ["packed"
-    \ ,                "noalias"
+    \   'zigStorage': ["noalias"
     \ ,                "callconv"
     \ ,                "volatile"
     \ ,                "allowzero"
@@ -49,11 +48,12 @@ let s:zig_syntax_keywords = {
     \ , 'zigRepeat': ["while"
     \ ,               "for"]
     \ , 'zigKeyword': ["fn"
-    \ ,                "usingnamespace"
-    \ ,                "struct"
-    \ ,                "enum"
-    \ ,                "union"
-    \ ,                "opaque"]
+    \ ,                "usingnamespace"]
+    \ , 'zigStructure': ["packed"
+    \ ,                  "struct"
+    \ ,                  "enum"
+    \ ,                  "union"
+    \ ,                  "opaque"]
     \ , 'zigCompTime': ["comptime"
     \ ,                 "test"]
     \ , 'zigType': ["bool"
@@ -268,6 +268,7 @@ highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 highlight default link zigOperator Operator
 highlight default link zigStorage StorageClass
+highlight default link zigStructure Structure
 highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
 highlight default link zigComparatorWord Operator
