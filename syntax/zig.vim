@@ -19,7 +19,6 @@ let s:zig_syntax_keywords = {
     \ ,                "linksection"
     \ ,                "threadlocal"
     \ ,                "anytype"]
-    \ , 'zigStructure': ["error"]
     \ , 'zigStatement': ["return"
     \ ,                  "break"
     \ ,                  "continue"
@@ -34,7 +33,8 @@ let s:zig_syntax_keywords = {
     \ , 'zigSpecial': ["pub"
     \ ,                "export"
     \ ,                "extern"]
-    \ , 'zigException': ["try"]
+    \ , 'zigException': ["error"
+    \ ,                  "try"]
     \ , 'zigPreProc': ["catch"
     \ ,                "inline"
     \ ,                "noinline"]
@@ -268,7 +268,6 @@ highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 highlight default link zigOperator Operator
 highlight default link zigStorage StorageClass
-highlight default link zigStructure Structure
 highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
 highlight default link zigComparatorWord Operator
