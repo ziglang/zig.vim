@@ -47,10 +47,10 @@ let s:zig_syntax_keywords = {
     \ ,                  "resume"]
     \ , 'zigConditional': ["if"
     \ ,                    "else"
-    \ ,                    "switch"
-    \ ,                    "and"
-    \ ,                    "or"
-    \ ,                    "orelse"]
+    \ ,                    "switch"]
+    \ , 'zigComparatorWord': ["and"
+    \ ,                       "or"
+    \ ,                       "orelse"]
     \ , 'zigRepeat': ["while"
     \ ,               "for"]
     \ , 'zigConstant': ["null"
@@ -271,6 +271,7 @@ highlight default link zigStorage StorageClass
 highlight default link zigStructure Structure
 highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
+highlight default link zigComparatorWord Function
 highlight default link zigRepeat Repeat
 
 delfunction s:syntax_keyword
