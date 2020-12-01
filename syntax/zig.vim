@@ -21,6 +21,7 @@ let s:zig_syntax_keywords = {
     \ , 'zigStatement': ["return"
     \ ,                  "break"
     \ ,                  "continue"
+    \ ,                  "try"
     \ ,                  "asm"
     \ ,                  "defer"
     \ ,                  "errdefer"
@@ -32,8 +33,7 @@ let s:zig_syntax_keywords = {
     \ , 'zigSpecial': ["pub"
     \ ,                "export"
     \ ,                "extern"]
-    \ , 'zigException': ["error"
-    \ ,                  "try"]
+    \ , 'zigException': ["error"]
     \ , 'zigPreProc': ["catch"
     \ ,                "inline"
     \ ,                "noinline"]
