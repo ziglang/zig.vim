@@ -264,7 +264,7 @@ highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc SpecialComment
 highlight default link zigTodo Todo
 highlight default link zigString String
-highlight default link zigStringDelimiter Delimiter
+highlight default link zigStringDelimiter StorageClass
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
 highlight default link zigMultilineStringPrefix Comment
