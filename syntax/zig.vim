@@ -228,9 +228,8 @@ syntax region zigBlock start="{" end="}" transparent fold
 syntax region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
 syntax region zigCommentLineDoc start="//[/!]/\@!" end="$" contains=zigTodo,@Spell
 
-" TODO: match only the first '\\' within the zigMultilineString as zigMultilineStringPrefix
-syntax match zigMultilineStringPrefix display contained /c\?\\\\/
-syntax region zigMultilineString start="c\?\\\\" end="$" contains=zigMultilineStringPrefix
+syntax match zigMultilineStringPrefix /c\?\\\\/ contained containedin=zigMultilineString
+syntax region zigMultilineString matchgroup=zigMultilineStringDelimiter start="c\?\\\\" end="$" contains=zigMultilineStringPrefix display
 
 syntax keyword zigTodo contained TODO
 
@@ -255,7 +254,8 @@ highlight default link zigString String
 highlight default link zigStringDelimiter StorageClass
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
-highlight default link zigMultilineStringPrefix Ignore
+highlight default link zigMultilineStringPrefix String
+highlight default link zigMultilineStringDelimiter Ignore
 highlight default link zigCharacterInvalid Error
 highlight default link zigCharacterInvalidUnicode zigCharacterInvalid
 highlight default link zigCharacter Character
