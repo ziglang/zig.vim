@@ -16,7 +16,6 @@ let s:zig_syntax_keywords = {
     \ ,                "volatile"
     \ ,                "allowzero"
     \ ,                "linksection"
-    \ ,                "threadlocal"
     \ ,                "anytype"]
     \ , 'zigStatement': ["return"
     \ ,                  "break"
@@ -86,7 +85,8 @@ let s:zig_syntax_keywords = {
     \ ,                "false"
     \ ,                "null"]
     \ , 'zigMacro': ["var"
-    \ ,              "const"]
+    \ ,              "const"
+    \ ,              "threadlocal"]
     \ , 'zigBuiltinFn': ["align"
     \ ,                  "@add"
     \ ,                  "@WithOverflow"
