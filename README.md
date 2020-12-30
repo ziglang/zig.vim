@@ -5,13 +5,25 @@ File detection and syntax highlighting for the
 
 ## Installation
 
-If using **Vim**:
+### If using [**vim-plug**](https://github.com/junegunn/vim-plug) (for Vim or Neovim)
+ * Open vim config
+ * Write `Plug 'ziglang/zig.vim'` inside the `plug` command:
+  ```vim
+  call plug#begin('~/.vim/plugged')
+     Plug 'ziglang/zig.vim'
+  call plug#end()
+  ```
+   
+  * Restart vim / reload vim config
+  * type `:PlugInstall`
+  
+### If using **Vim**:
  * Use Vim 8 or newer
  * `mkdir -p ~/.vim/pack/plugins/start/`
  * `cd ~/.vim/pack/plugins/start/`
  * `git clone https://github.com/ziglang/zig.vim`
 
-If using **Neovim**:
+### If using **Neovim**:
  * `mkdir -p ~/.local/share/nvim/site/pack/plugins/start/`
  * `cd ~/.local/share/nvim/site/pack/plugins/start/`
  * `git clone https://github.com/ziglang/zig.vim`
