@@ -8,6 +8,14 @@ let b:did_ftplugin = 1
 let s:cpo_orig = &cpo
 set cpo&vim
 
+if get(b:, 'current_compiler', '') ==# ''
+    if strlen(findfile('build.zig', '.;')) > 0
+        compiler zig_build
+    else
+        compiler zig_build_exe
+    endif
+endif
+
 " Match Zig builtin fns
 setlocal iskeyword+=@-@
 
@@ -20,7 +28,6 @@ setlocal shiftwidth=4
 setlocal formatoptions-=t formatoptions+=croql
 
 setlocal suffixesadd=.zig,.zir
-setlocal makeprg=zig\ build
 
 if has('comments')
     setlocal comments=:///,://!,://,:\\\\
