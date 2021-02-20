@@ -48,13 +48,18 @@ function! zig#fmt#Format() abort
     execute 'lwindow ' . win_height
   endif
 
-  if err != 0
-    echohl Error | echomsg "zig fmt returned error" | echohl None
-  endif
-
   call delete(stderr_file)
 
   call winrestview(view)
+
+  if err != 0
+    echohl Error | echomsg "zig fmt returned error" | echohl None
+    return
+  endif
+
+  " Run the syntax highlighter on the updated content and recompute the folds if
+  " needed.
+  syntax sync fromstart
 endfunction
 
 " parse_errors parses the given errors and returns a list of parsed errors
