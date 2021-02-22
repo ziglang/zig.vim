@@ -36,3 +36,10 @@ This plugin enables automatic code formatting on save by default using
 ```
 let g:zig_fmt_autosave = 0
 ```
+
+The default compiler which gets used by `:make` (`:help :compiler` for details)
+is `zig_build` and it runs `zig build`.  The other options are:
+ * `:compiler zig_test` which runs `zig test` on the current file.
+ * `:compiler zig_build_exe` which runs `zig build-exe` on the current file.
+ * `:compiler zig` which requires that a subcommand is passed as an argument
+   and it runs on the current file.
