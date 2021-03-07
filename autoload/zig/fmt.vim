@@ -27,8 +27,8 @@ function! zig#fmt#Format() abort
     try | silent undojoin | catch | endtry
 
     " Replace the file content with the formatted version.
-    call deletebufline(current_buf, len(out), line('$'))
-    call setline(1, out)
+    call deletebufline(current_buf, 1, line('$'))
+    call setbufline(current_buf, 1, out)
 
     " No errors detected, close the loclist.
     call setloclist(0, [], 'r')
