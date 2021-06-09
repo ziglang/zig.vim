@@ -229,6 +229,18 @@ syntax region zigBlock start="{" end="}" transparent fold
 syntax region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
 syntax region zigCommentLineDoc start="//[/!]/\@!" end="$" contains=zigTodo,@Spell
 
+" Rule for foldable regions based on markers in comments. Example:
+" // Bla bla bla {{{
+"  ...
+"  ...
+"  ...
+" // }}}
+"
+" Obtain start and end patterns from 'foldmarker' option
+let fold_pattern_start = '://.*' . split(&foldmarker,',')[0] . '$:'
+let fold_pattern_end = '://.*' . split(&foldmarker,',')[1] . '$:'
+execute 'syntax region zigFoldCommentLine matchgroup=zigFoldCommentLineDelimiter start='.fold_pattern_start.' end='.fold_pattern_end.' transparent fold contains=ALL'
+
 syntax match zigMultilineStringPrefix /c\?\\\\/ contained containedin=zigMultilineString
 syntax region zigMultilineString matchgroup=zigMultilineStringDelimiter start="c\?\\\\" end="$" contains=zigMultilineStringPrefix display
 
@@ -249,6 +261,7 @@ highlight default link zigKeyword Keyword
 highlight default link zigType Type
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
+highlight default link zigFoldCommentLineDelimiter Comment
 highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
