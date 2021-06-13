@@ -45,7 +45,7 @@ function! GetZigIndent(lnum)
     let prevLineNum = prevnonblank(a:lnum-1)
     let prevLine = getline(prevLineNum)
 
-    " for lines that look line
+    " for lines that look like
     "   },
     "   };
     " try treat them the same as a }
