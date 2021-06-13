@@ -49,19 +49,12 @@ function! GetZigIndent(lnum)
     "   },
     "   };
     " try treat them the same as a }
-    if prevLine =~ '\v^\s*},$'
-        if currentLine =~ '\v^\s*};$' || currentLine =~ '\v^\s*}$'
+    if prevLine =~ '\v^\s*}\s*[,;]\s*$'
+        if currentLine =~ '\v^\s*}\s*[,;]?\s*$'
             return indent(prevLineNum) - 4
         endif
         return indent(prevLineNum-1) - 4
     endif
-    if currentLine =~ '\v^\s*},$'
-        return indent(prevLineNum) - 4
-    endif
-    if currentLine =~ '\v^\s*};$'
-        return indent(prevLineNum) - 4
-    endif
-
 
     " cindent doesn't handle this case correctly:
     " switch (1): {
