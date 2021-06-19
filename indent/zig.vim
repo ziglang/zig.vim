@@ -45,6 +45,31 @@ function! GetZigIndent(lnum)
     let prevLineNum = prevnonblank(a:lnum-1)
     let prevLine = getline(prevLineNum)
 
+    " for lines that begin with an `else`:
+    if currentLine =~ '\v^\s*else>'
+        " TODO: explain the process
+        " FIXME: would this cause uneeded slowdowns?
+        let indentLimit = indent(prevLineNum)
+        let lineNum = prevLineNum
+        while 1
+            let lineNum = prevnonblank(lineNum-1)
+            if lineNum < 1
+                return -1
+            endif
+
+            let line = getline(lineNum)
+
+            let lineNumIndent = indent(lineNum)
+            if lineNumIndent < indentLimit
+                if line =~ '\v<if>'
+                    return lineNumIndent
+                endif
+
+                return -1
+            endif
+        endwhile
+    endif
+
     " for lines that look like
     "   },
     "   };
