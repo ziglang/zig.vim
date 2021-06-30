@@ -1,3 +1,5 @@
+# NOTE: This fork is broken.
+
 # zig.vim
 
 File detection and syntax highlighting for the
