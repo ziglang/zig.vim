@@ -131,6 +131,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@memcpy"
     \ ,                  "@memset"
     \ ,                  "@mod"
+    \ ,                  "@mulAdd"
     \ ,                  "@mulWithOverflow"
     \ ,                  "@splat"
     \ ,                  "@src"
