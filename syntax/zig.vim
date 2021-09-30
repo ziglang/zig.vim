@@ -248,7 +248,7 @@ highlight default link zigCommentLineDoc Comment
 highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
-highlight default link zigStringDelimiter Delimiter
+highlight default link zigStringDelimiter String
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
 highlight default link zigMultilineStringPrefix String
