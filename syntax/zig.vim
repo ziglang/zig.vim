@@ -128,6 +128,8 @@ let s:zig_syntax_keywords = {
     \ ,                  "@newStackCall"
     \ ,                  "@asyncCall"
     \ ,                  "@intToPtr"
+    \ ,                  "@maximum"
+    \ ,                  "@minimum"
     \ ,                  "@memcpy"
     \ ,                  "@memset"
     \ ,                  "@mod"
