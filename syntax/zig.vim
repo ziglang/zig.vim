@@ -254,7 +254,7 @@ highlight default link zigStringDelimiter Delimiter
 highlight default link zigMultilineString String
 highlight default link zigMultilineStringContent String
 highlight default link zigMultilineStringPrefix String
-highlight default link zigMultilineStringDelimiter Ignore
+highlight default link zigMultilineStringDelimiter Delimiter
 highlight default link zigCharacterInvalid Error
 highlight default link zigCharacterInvalidUnicode zigCharacterInvalid
 highlight default link zigCharacter Character
