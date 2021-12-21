@@ -43,7 +43,7 @@ let s:zig_syntax_keywords = {
     \ ,             "c_longlong"
     \ ,             "c_ulonglong"
     \ ,             "c_longdouble"
-    \ ,             "c_void"]
+    \ ,             "anyopaque"]
     \ , 'zigConstant': ["undefined"
     \ ,                 "unreachable"]
     \ , 'zigConditional': ["if"
