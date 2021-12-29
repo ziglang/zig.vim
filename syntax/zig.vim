@@ -24,6 +24,7 @@ let s:zig_syntax_keywords = {
     \ ,             "anytype"
     \ ,             "anyerror"
     \ ,             "anyframe"
+    \ ,             "anyopaque"
     \ ,             "volatile"
     \ ,             "linksection"
     \ ,             "noreturn"
@@ -42,8 +43,7 @@ let s:zig_syntax_keywords = {
     \ ,             "c_ulong"
     \ ,             "c_longlong"
     \ ,             "c_ulonglong"
-    \ ,             "c_longdouble"
-    \ ,             "c_void"]
+    \ ,             "c_longdouble"]
     \ , 'zigConstant': ["undefined"
     \ ,                 "unreachable"]
     \ , 'zigConditional': ["if"
