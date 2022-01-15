@@ -142,6 +142,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@offsetOf"
     \ ,                  "@OpaqueType"
     \ ,                  "@panic"
+    \ ,                  "@prefetch"
     \ ,                  "@ptrCast"
     \ ,                  "@ptrToInt"
     \ ,                  "@rem"
