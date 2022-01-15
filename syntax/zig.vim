@@ -151,6 +151,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@Type"
     \ ,                  "@shuffle"
     \ ,                  "@reduce"
+    \ ,                  "@select"
     \ ,                  "@setRuntimeSafety"
     \ ,                  "@setEvalBranchQuota"
     \ ,                  "@setFloatMode"
