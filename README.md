@@ -37,6 +37,20 @@ This plugin enables automatic code formatting on save by default using
 let g:zig_fmt_autosave = 0
 ```
 
+Additionally, `zig ast-check` is run after formatting, to disable this,
+set the following:
+
+```
+let g:zig_ast_check_autosave = 0
+```
+
+The above `zig fmt` and `zig ast-check` are done in separate steps, to do them
+in one step (as `zig fmt --ast-check`) set the following:
+
+```
+let g:zig_fmt_ast_check_autosave = 1
+```
+
 The default compiler which gets used by `:make` (`:help :compiler` for details)
 is `zig_build` and it runs `zig build`.  The other options are:
  * `:compiler zig_test` which runs `zig test` on the current file.
