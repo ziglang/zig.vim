@@ -18,6 +18,7 @@ let s:zig_syntax_keywords = {
     \ ,             "f16"
     \ ,             "f32"
     \ ,             "f64"
+    \ ,             "f80"
     \ ,             "f128"
     \ ,             "void"
     \ ,             "type"
