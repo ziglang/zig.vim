@@ -4,7 +4,7 @@
 " Use of this source code is governed by a BSD-style
 " license that can be found in the LICENSE file.
 
-function! zig#fmt#Format(do_astcheck) abort
+function! zig#fmt#Format() abort
   " Save cursor position and many other things.
   let view = winsaveview()
 
@@ -13,10 +13,7 @@ function! zig#fmt#Format(do_astcheck) abort
     return
   endif
 
-  let cmdline = 'zig fmt --stdin'
-  if a:do_astcheck
-    let cmdline .= ' --ast-check'
-  endif
+  let cmdline = 'zig fmt --stdin --ast-check'
   let current_buf = bufnr('')
 
   " The formatted code is output on stdout, the errors go on stderr.
@@ -78,38 +75,6 @@ function! zig#fmt#Format(do_astcheck) abort
   " Run the syntax highlighter on the updated content and recompute the folds if
   " needed.
   syntax sync fromstart
-endfunction
-
-function! zig#fmt#Astcheck() abort
-  if !executable('zig')
-    echohl Error | echomsg "no zig binary found in PATH" | echohl None
-    return
-  endif
-
-  let cmdline = 'zig ast-check'
-  let current_buf = bufnr('')
-  if exists('*systemlist')
-    silent let out = systemlist(cmdline, current_buf)
-  else
-    silent let out = split(system(cmdline, current_buf))
-  endif
-  let err = v:shell_error
-
-  if err == 0
-    call setloclist(0, [], 'r')
-    lclose
-  else
-    let errors = s:parse_errors(expand('%'), out)
-
-    call setloclist(0, [], 'r', {
-        \ 'title': 'Errors',
-        \ 'items': errors,
-        \ })
-
-    let max_win_height = get(g:, 'zig_fmt_max_window_height', 5)
-    let win_height = min([max_win_height, len(errors)])
-    execute 'silent! lwindow ' . win_height
-  endif
 endfunction
 
 " parse_errors parses the given errors and returns a list of parsed errors
