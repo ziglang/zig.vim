@@ -199,6 +199,8 @@ let s:zig_syntax_keywords = {
     \ ,                  "@floor"
     \ ,                  "@ceil"
     \ ,                  "@trunc"
+    \ ,                  "@wasmMemorySize"
+    \ ,                  "@wasmMemoryGrow"
     \ ,                  "@round"]
     \ }
 
