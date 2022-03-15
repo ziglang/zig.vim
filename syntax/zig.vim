@@ -115,6 +115,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@divTrunc"
     \ ,                  "@embedFile"
     \ ,                  "@export"
+    \ ,                  "@extern"
     \ ,                  "@tagName"
     \ ,                  "@TagType"
     \ ,                  "@errorName"
