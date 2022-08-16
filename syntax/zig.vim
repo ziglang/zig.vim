@@ -156,6 +156,9 @@ syn region zigBlock start="{" end="}" fold transparent
 syn region zigComment start="//" end="$" contains=zigTodo,@Spell display
 syn region zigCommentDoc start="^\s*\zs//\(//\@!\|!\)" end="$" contains=zigTodo,@Spell display
 
+" Special operators.
+syn match zigSpecial "\.\zs[*?]" display
+
 " DEFAULT HIGHLIGHTING {{{1
 hi def link zigBoolean Boolean
 hi def link zigBuiltin Function
@@ -172,6 +175,7 @@ hi def link zigKeyword Keyword
 hi def link zigNumber Number
 hi def link zigOperator Operator
 hi def link zigRepeat Repeat
+hi def link zigSpecial Special
 hi def link zigStorageClass StorageClass
 hi def link zigString String
 hi def link zigStructure Structure
