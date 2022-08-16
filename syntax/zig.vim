@@ -1,3 +1,4 @@
+" PRELUDE {{{1
 " Vim syntax file
 " Language: Zig
 " Maintainer: Andrew Kelley
@@ -6,13 +7,16 @@
 if exists("b:current_syntax")
   finish
 endif
+let b:current_syntax = "zig"
 
 let s:cpo_save = &cpo
 set cpo&vim
 
+" SYNTAX {{{1
 syn case match
 syn iskeyword @,48-57,@-@,_
 
+" KEYWORDS {{{2
 syn keyword zigConditional if else switch
 syn keyword zigException catch errdefer orelse try
 syn keyword zigKeyword asm
@@ -39,6 +43,7 @@ syn keyword zigStorageClass packed
 syn keyword zigStorageClass threadlocal
 syn keyword zigStructure enum error opaque struct union
 
+" BUILTINS {{{2
 syn keyword zigBuiltin @addWithOverflow @mulWithOverflow @subWithOverflow
 syn keyword zigBuiltin @alignCast @bitCast
 syn keyword zigBuiltin @alignOf @offsetOf @sizeOf
@@ -96,6 +101,7 @@ syn keyword zigBuiltin @wasmMemoryGrow @wasmMemorySize
 " C ABI.
 syn keyword zigBuiltin @cDefine @cImport @cInclude @cUndef
 
+" TYPES {{{2
 syn keyword zigType anyerror anyframe anyopaque anytype
 syn keyword zigType bool
 syn keyword zigType comptime_float comptime_int
@@ -115,6 +121,7 @@ syn keyword zigType c_short c_ushort
 " Integer types of arbitrary bit-width.
 syn match zigType "\v<[iu]\d+>" display
 
+" LITERALS {{{2
 syn keyword zigBoolean true false
 syn keyword zigConstant null undefined
 
@@ -139,6 +146,7 @@ syn region zigCharacter start="'" end="'\|$" skip="\\'" contains=zigEscape displ
 syn region zigString start=+"+ end=+"\|$+ skip=+\\"+ contains=zigEscape,zigFormat display extend
 syn region zigString start="^\s*\\\\" end="$" display
 
+" MISCELLANEOUS {{{2
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
 syntax match zigArrowCharacter display "\V->"
 
@@ -149,6 +157,7 @@ syntax region zigCommentLineDoc start="//[/!]/\@!" end="$" contains=zigTodo,@Spe
 
 syntax keyword zigTodo contained TODO
 
+" DEFAULT HIGHLIGHTING {{{1
 hi def link zigBoolean Boolean
 hi def link zigBuiltin Function
 hi def link zigCharacter Character
@@ -171,8 +180,6 @@ highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
 highlight default link zigTodo Todo
 highlight default link zigArrowCharacter zigOperator
-
-let b:current_syntax = "zig"
 
 let &cpo = s:cpo_save
 unlet! s:cpo_save
