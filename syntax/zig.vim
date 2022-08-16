@@ -118,14 +118,20 @@ syn match zigType "\v<[iu]\d+>" display
 syn keyword zigBoolean true false
 syn keyword zigConstant null undefined
 
+" Number literals.
+syn match zigNumber "\v<\d(_?\d)*>" display
+syn match zigNumber "\v<0b[01](_?[01])*>" display
+syn match zigNumber "\v<0o\o(_?\o)*>" display
+syn match zigNumber "\v<0x\x(_?\x)*>" display
+
+" Floating-point number literals.
+syn match zigFloat "\v<\d(_?\d)*\.\d(_?\d)*>" display
+syn match zigFloat "\v<\d(_?\d)*(\.\d(_?\d)*)?[Ee][+-]?\d(_?\d)*>" display
+syn match zigFloat "\v<0x\x(_?\x)*\.\x(_?\x)*>" display
+syn match zigFloat "\v<0x\x(_?\x)*(\.\x(_?\x)*)?[Pp][+-]?\x(_?\x)*>" display
+
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
 syntax match zigArrowCharacter display "\V->"
-
-"                                     12_34  (. but not ..)? (12_34)?     (exponent  12_34)?
-syntax match zigDecNumber display   "\v<\d%(_?\d)*%(\.\.@!)?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
-syntax match zigHexNumber display "\v<0x\x%(_?\x)*%(\.\.@!)?%(\x%(_?\x)*)?%([pP][+-]?\d%(_?\d)*)?"
-syntax match zigOctNumber display "\v<0o\o%(_?\o)*"
-syntax match zigBinNumber display "\v<0b[01]%(_?[01])*"
 
 syntax match zigCharacterInvalid display contained /b\?'\zs[\n\r\t']\ze'/
 syntax match zigCharacterInvalidUnicode display contained /b'\zs[^[:cntrl:][:graph:][:alnum:][:space:]]\ze'/
@@ -152,17 +158,14 @@ hi def link zigBuiltin Function
 hi def link zigConditional Conditional
 hi def link zigConstant Constant
 hi def link zigException Exception
+hi def link zigFloat Float
 hi def link zigKeyword Keyword
+hi def link zigNumber Number
 hi def link zigOperator Operator
 hi def link zigRepeat Repeat
 hi def link zigStorageClass StorageClass
 hi def link zigStructure Structure
 hi def link zigType Type
-
-highlight default link zigDecNumber zigNumber
-highlight default link zigHexNumber zigNumber
-highlight default link zigOctNumber zigNumber
-highlight default link zigBinNumber zigNumber
 
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
@@ -179,7 +182,6 @@ highlight default link zigCharacter Character
 highlight default link zigEscape Special
 highlight default link zigEscapeUnicode zigEscape
 highlight default link zigEscapeError Error
-highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 
 let b:current_syntax = "zig"
