@@ -156,6 +156,9 @@ syn region zigBlock start="{" end="}" fold transparent
 syn region zigComment start="//" end="$" contains=zigTodo,@Spell display
 syn region zigCommentDoc start="^\s*\zs//\(//\@!\|!\)" end="$" contains=zigTodo,@Spell display
 
+" Identifiers using the @"" syntax.
+syn match zigIdentifier +@".*"+ display
+
 " Special operators.
 syn match zigSpecial "\.\zs[*?]" display
 
@@ -171,6 +174,7 @@ hi def link zigEscape SpecialChar
 hi def link zigException Exception
 hi def link zigFloat Float
 hi def link zigFormat SpecialChar
+hi def link zigIdentifier Identifier
 hi def link zigKeyword Keyword
 hi def link zigNumber Number
 hi def link zigOperator Operator
