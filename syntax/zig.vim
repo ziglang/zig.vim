@@ -10,209 +10,110 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-let s:zig_syntax_keywords = {
-    \   'zigBoolean': ["true"
-    \ ,                "false"]
-    \ , 'zigNull': ["null"]
-    \ , 'zigType': ["bool"
-    \ ,             "f16"
-    \ ,             "f32"
-    \ ,             "f64"
-    \ ,             "f80"
-    \ ,             "f128"
-    \ ,             "void"
-    \ ,             "type"
-    \ ,             "anytype"
-    \ ,             "anyerror"
-    \ ,             "anyframe"
-    \ ,             "volatile"
-    \ ,             "linksection"
-    \ ,             "noreturn"
-    \ ,             "allowzero"
-    \ ,             "i0"
-    \ ,             "u0"
-    \ ,             "isize"
-    \ ,             "usize"
-    \ ,             "comptime_int"
-    \ ,             "comptime_float"
-    \ ,             "c_short"
-    \ ,             "c_ushort"
-    \ ,             "c_int"
-    \ ,             "c_uint"
-    \ ,             "c_long"
-    \ ,             "c_ulong"
-    \ ,             "c_longlong"
-    \ ,             "c_ulonglong"
-    \ ,             "c_longdouble"
-    \ ,             "anyopaque"]
-    \ , 'zigConstant': ["undefined"
-    \ ,                 "unreachable"]
-    \ , 'zigConditional': ["if"
-    \ ,                    "else"
-    \ ,                    "switch"]
-    \ , 'zigRepeat': ["while"
-    \ ,               "for"]
-    \ , 'zigComparatorWord': ["and"
-    \ ,                       "or"
-    \ ,                       "orelse"]
-    \ , 'zigStructure': ["struct"
-    \ ,                  "enum"
-    \ ,                  "union"
-    \ ,                  "error"
-    \ ,                  "packed"
-    \ ,                  "opaque"]
-    \ , 'zigException': ["error"]
-    \ , 'zigVarDecl': ["var"
-    \ ,                "const"
-    \ ,                "comptime"
-    \ ,                "threadlocal"]
-    \ , 'zigDummyVariable': ["_"]
-    \ , 'zigKeyword': ["fn"
-    \ ,                "try"
-    \ ,                "test"
-    \ ,                "pub"
-    \ ,                "usingnamespace"]
-    \ , 'zigExecution': ["return"
-    \ ,                  "break"
-    \ ,                  "continue"]
-    \ , 'zigMacro': ["defer"
-    \ ,              "errdefer"
-    \ ,              "async"
-    \ ,              "nosuspend"
-    \ ,              "await"
-    \ ,              "suspend"
-    \ ,              "resume"
-    \ ,              "export"
-    \ ,              "extern"]
-    \ , 'zigPreProc': ["catch"
-    \ ,                "inline"
-    \ ,                "noinline"
-    \ ,                "asm"
-    \ ,                "callconv"
-    \ ,                "noalias"]
-    \ , 'zigBuiltinFn': ["align"
-    \ ,                  "@addWithOverflow"
-    \ ,                  "@as"
-    \ ,                  "@atomicLoad"
-    \ ,                  "@atomicStore"
-    \ ,                  "@bitCast"
-    \ ,                  "@breakpoint"
-    \ ,                  "@alignCast"
-    \ ,                  "@alignOf"
-    \ ,                  "@cDefine"
-    \ ,                  "@cImport"
-    \ ,                  "@cInclude"
-    \ ,                  "@cUndef"
-    \ ,                  "@clz"
-    \ ,                  "@cmpxchgWeak"
-    \ ,                  "@cmpxchgStrong"
-    \ ,                  "@compileError"
-    \ ,                  "@compileLog"
-    \ ,                  "@ctz"
-    \ ,                  "@popCount"
-    \ ,                  "@divExact"
-    \ ,                  "@divFloor"
-    \ ,                  "@divTrunc"
-    \ ,                  "@embedFile"
-    \ ,                  "@export"
-    \ ,                  "@extern"
-    \ ,                  "@tagName"
-    \ ,                  "@TagType"
-    \ ,                  "@errorName"
-    \ ,                  "@call"
-    \ ,                  "@errorReturnTrace"
-    \ ,                  "@fence"
-    \ ,                  "@fieldParentPtr"
-    \ ,                  "@field"
-    \ ,                  "@unionInit"
-    \ ,                  "@frameAddress"
-    \ ,                  "@import"
-    \ ,                  "@newStackCall"
-    \ ,                  "@asyncCall"
-    \ ,                  "@intToPtr"
-    \ ,                  "@maximum"
-    \ ,                  "@minimum"
-    \ ,                  "@memcpy"
-    \ ,                  "@memset"
-    \ ,                  "@mod"
-    \ ,                  "@mulAdd"
-    \ ,                  "@mulWithOverflow"
-    \ ,                  "@splat"
-    \ ,                  "@src"
-    \ ,                  "@bitOffsetOf"
-    \ ,                  "@byteOffsetOf"
-    \ ,                  "@offsetOf"
-    \ ,                  "@OpaqueType"
-    \ ,                  "@panic"
-    \ ,                  "@prefetch"
-    \ ,                  "@ptrCast"
-    \ ,                  "@ptrToInt"
-    \ ,                  "@rem"
-    \ ,                  "@returnAddress"
-    \ ,                  "@setCold"
-    \ ,                  "@Type"
-    \ ,                  "@shuffle"
-    \ ,                  "@reduce"
-    \ ,                  "@select"
-    \ ,                  "@setRuntimeSafety"
-    \ ,                  "@setEvalBranchQuota"
-    \ ,                  "@setFloatMode"
-    \ ,                  "@shlExact"
-    \ ,                  "@This"
-    \ ,                  "@hasDecl"
-    \ ,                  "@hasField"
-    \ ,                  "@shlWithOverflow"
-    \ ,                  "@shrExact"
-    \ ,                  "@sizeOf"
-    \ ,                  "@bitSizeOf"
-    \ ,                  "@sqrt"
-    \ ,                  "@byteSwap"
-    \ ,                  "@subWithOverflow"
-    \ ,                  "@intCast"
-    \ ,                  "@floatCast"
-    \ ,                  "@intToFloat"
-    \ ,                  "@floatToInt"
-    \ ,                  "@boolToInt"
-    \ ,                  "@errSetCast"
-    \ ,                  "@truncate"
-    \ ,                  "@typeInfo"
-    \ ,                  "@typeName"
-    \ ,                  "@TypeOf"
-    \ ,                  "@atomicRmw"
-    \ ,                  "@intToError"
-    \ ,                  "@errorToInt"
-    \ ,                  "@intToEnum"
-    \ ,                  "@enumToInt"
-    \ ,                  "@setAlignStack"
-    \ ,                  "@frame"
-    \ ,                  "@Frame"
-    \ ,                  "@frameSize"
-    \ ,                  "@bitReverse"
-    \ ,                  "@Vector"
-    \ ,                  "@sin"
-    \ ,                  "@cos"
-    \ ,                  "@tan"
-    \ ,                  "@exp"
-    \ ,                  "@exp2"
-    \ ,                  "@log"
-    \ ,                  "@log2"
-    \ ,                  "@log10"
-    \ ,                  "@fabs"
-    \ ,                  "@floor"
-    \ ,                  "@ceil"
-    \ ,                  "@trunc"
-    \ ,                  "@wasmMemorySize"
-    \ ,                  "@wasmMemoryGrow"
-    \ ,                  "@round"]
-    \ }
+syn case match
+syn iskeyword @,48-57,@-@,_
 
-function! s:syntax_keyword(dict)
-  for key in keys(a:dict)
-    execute 'syntax keyword' key join(a:dict[key], ' ')
-  endfor
-endfunction
+syn keyword zigConditional if else switch
+syn keyword zigException catch errdefer orelse try
+syn keyword zigKeyword asm
+syn keyword zigKeyword async await
+syn keyword zigKeyword break continue return
+syn keyword zigKeyword comptime
+syn keyword zigKeyword defer
+syn keyword zigKeyword fn
+syn keyword zigKeyword pub
+syn keyword zigKeyword resume suspend nosuspend
+syn keyword zigKeyword test
+syn keyword zigKeyword unreachable
+syn keyword zigKeyword usingnamespace
+syn keyword zigOperator and or
+syn keyword zigRepeat for while
+syn keyword zigStorageClass align
+syn keyword zigStorageClass allowzero
+syn keyword zigStorageClass callconv
+syn keyword zigStorageClass const var volatile
+syn keyword zigStorageClass export extern
+syn keyword zigStorageClass linksection
+syn keyword zigStorageClass noalias
+syn keyword zigStorageClass packed
+syn keyword zigStorageClass threadlocal
+syn keyword zigStructure enum error opaque struct union
 
-call s:syntax_keyword(s:zig_syntax_keywords)
+syn keyword zigBuiltin @addWithOverflow @mulWithOverflow @subWithOverflow
+syn keyword zigBuiltin @alignCast @bitCast
+syn keyword zigBuiltin @alignOf @offsetOf @sizeOf
+syn keyword zigBuiltin @as
+syn keyword zigBuiltin @asyncCall
+syn keyword zigBuiltin @atomicLoad @atomicStore @atomicRmw
+syn keyword zigBuiltin @bitOffsetOf @bitSizeOf
+syn keyword zigBuiltin @bitReverse
+syn keyword zigBuiltin @boolToInt @enumToInt @errorToInt @floatToInt @ptrToInt
+syn keyword zigBuiltin @breakpoint
+syn keyword zigBuiltin @byteSwap
+syn keyword zigBuiltin @call
+syn keyword zigBuiltin @ceil @floor @round @trunc
+syn keyword zigBuiltin @clz @ctz
+syn keyword zigBuiltin @cmpxchgStrong @cmpxchgWeak
+syn keyword zigBuiltin @compileError @compileLog
+syn keyword zigBuiltin @divExact @divFloor @divTrunc
+syn keyword zigBuiltin @embedFile
+syn keyword zigBuiltin @errorName @errorReturnTrace
+syn keyword zigBuiltin @errSetCast @floatCast @intCast @ptrCast
+syn keyword zigBuiltin @exp @exp2
+syn keyword zigBuiltin @export @extern
+syn keyword zigBuiltin @fabs
+syn keyword zigBuiltin @fence
+syn keyword zigBuiltin @field @fieldParentPtr @hasField
+syn keyword zigBuiltin @Frame @frame @frameAddress @frameSize
+syn keyword zigBuiltin @hasDecl
+syn keyword zigBuiltin @import
+syn keyword zigBuiltin @intToEnum @intToError @intToFloat @intToPtr
+syn keyword zigBuiltin @log @log2 @log10
+syn keyword zigBuiltin @maximum @minimum
+syn keyword zigBuiltin @memcpy @memset
+syn keyword zigBuiltin @mod @rem
+syn keyword zigBuiltin @mulAdd
+syn keyword zigBuiltin @panic
+syn keyword zigBuiltin @popCount
+syn keyword zigBuiltin @prefetch
+syn keyword zigBuiltin @reduce @select
+syn keyword zigBuiltin @returnAddress
+syn keyword zigBuiltin @setAlignStack @setCold
+syn keyword zigBuiltin @setEvalBranchQuota @setFloatMode @setRuntimeSafety
+syn keyword zigBuiltin @shlExact @shrExact @shlWithOverflow
+syn keyword zigBuiltin @shuffle
+syn keyword zigBuiltin @sin @cos @tan
+syn keyword zigBuiltin @sqrt
+syn keyword zigBuiltin @src
+syn keyword zigBuiltin @tagName
+syn keyword zigBuiltin @This
+syn keyword zigBuiltin @truncate
+syn keyword zigBuiltin @Type @TypeOf @typeInfo @typeName
+syn keyword zigBuiltin @unionInit
+syn keyword zigBuiltin @Vector @splat
+syn keyword zigBuiltin @wasmMemoryGrow @wasmMemorySize
+
+" C ABI.
+syn keyword zigBuiltin @cDefine @cImport @cInclude @cUndef
+
+syn keyword zigType anyerror anyframe anyopaque anytype
+syn keyword zigType bool
+syn keyword zigType comptime_float comptime_int
+syn keyword zigType f16 f32 f64 f128
+syn keyword zigType isize usize
+syn keyword zigType noreturn
+syn keyword zigType type
+syn keyword zigType void
+
+" C ABI.
+syn keyword zigType c_int c_uint
+syn keyword zigType c_long c_ulong
+syn keyword zigType c_longdouble
+syn keyword zigType c_longlong c_ulonglong
+syn keyword zigType c_short c_ushort
+
+syn keyword zigBoolean true false
+syn keyword zigConstant null undefined
 
 syntax match zigType "\v<[iu][1-9]\d*>"
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
@@ -244,17 +145,25 @@ syntax match zigEscapeError   display contained /\\./
 syntax match zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
 syntax match zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
 
+hi def link zigBoolean Boolean
+hi def link zigBuiltin Function
+hi def link zigConditional Conditional
+hi def link zigConstant Constant
+hi def link zigException Exception
+hi def link zigKeyword Keyword
+hi def link zigOperator Operator
+hi def link zigRepeat Repeat
+hi def link zigStorageClass StorageClass
+hi def link zigStructure Structure
+hi def link zigType Type
+
 highlight default link zigDecNumber zigNumber
 highlight default link zigHexNumber zigNumber
 highlight default link zigOctNumber zigNumber
 highlight default link zigBinNumber zigNumber
 
-highlight default link zigBuiltinFn Statement
-highlight default link zigKeyword Keyword
-highlight default link zigType Type
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
-highlight default link zigDummyVariable Comment
 highlight default link zigTodo Todo
 highlight default link zigString String
 highlight default link zigStringDelimiter String
@@ -268,24 +177,8 @@ highlight default link zigCharacter Character
 highlight default link zigEscape Special
 highlight default link zigEscapeUnicode zigEscape
 highlight default link zigEscapeError Error
-highlight default link zigBoolean Boolean
-highlight default link zigNull Boolean
-highlight default link zigConstant Constant
 highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
-highlight default link zigOperator Operator
-highlight default link zigStructure Structure
-highlight default link zigExecution Special
-highlight default link zigMacro Macro
-highlight default link zigConditional Conditional
-highlight default link zigComparatorWord Keyword
-highlight default link zigRepeat Repeat
-highlight default link zigSpecial Special
-highlight default link zigVarDecl Function
-highlight default link zigPreProc PreProc
-highlight default link zigException Exception
-
-delfunction s:syntax_keyword
 
 let b:current_syntax = "zig"
 
