@@ -147,20 +147,21 @@ syn region zigString start=+"+ end=+"\|$+ skip=+\\"+ contains=zigEscape,zigForma
 syn region zigString start="^\s*\\\\" end="$" display
 
 " MISCELLANEOUS {{{2
-syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
-syntax match zigArrowCharacter display "\V->"
+syn keyword zigTodo FIXME TODO XXX contained
 
-syntax region zigBlock start="{" end="}" transparent fold
+" Blocks.
+syn region zigBlock start="{" end="}" fold transparent
 
-syntax region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
-syntax region zigCommentLineDoc start="//[/!]/\@!" end="$" contains=zigTodo,@Spell
-
-syntax keyword zigTodo contained TODO
+" Comments.
+syn region zigComment start="//" end="$" contains=zigTodo,@Spell display
+syn region zigCommentDoc start="^\s*\zs//\(//\@!\|!\)" end="$" contains=zigTodo,@Spell display
 
 " DEFAULT HIGHLIGHTING {{{1
 hi def link zigBoolean Boolean
 hi def link zigBuiltin Function
 hi def link zigCharacter Character
+hi def link zigComment Comment
+hi def link zigCommentDoc SpecialComment
 hi def link zigConditional Conditional
 hi def link zigConstant Constant
 hi def link zigEscape SpecialChar
@@ -174,12 +175,8 @@ hi def link zigRepeat Repeat
 hi def link zigStorageClass StorageClass
 hi def link zigString String
 hi def link zigStructure Structure
+hi def link zigTodo Todo
 hi def link zigType Type
-
-highlight default link zigCommentLine Comment
-highlight default link zigCommentLineDoc Comment
-highlight default link zigTodo Todo
-highlight default link zigArrowCharacter zigOperator
 
 let &cpo = s:cpo_save
 unlet! s:cpo_save
