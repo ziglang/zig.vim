@@ -130,58 +130,46 @@ syn match zigFloat "\v<\d(_?\d)*(\.\d(_?\d)*)?[Ee][+-]?\d(_?\d)*>" display
 syn match zigFloat "\v<0x\x(_?\x)*\.\x(_?\x)*>" display
 syn match zigFloat "\v<0x\x(_?\x)*(\.\x(_?\x)*)?[Pp][+-]?\x(_?\x)*>" display
 
+" String and character literals.
+syn match zigEscape "\\[\\'"nrt]" contained display
+syn match zigEscape "\\x\x\{2}" contained display
+syn match zigEscape "\v\\u\{\x{1,6}}" contained display
+syn match zigFormat "\v\{(\d+|\[\h\w*])?([!?]*([!?*Xbcdeosux]|any))?(:(([^\\]|\\([\\'"nrt]|x\x{2}|u\{\x{1,6}}))[<>^]|[<>^])?\d*(\.\d*)?)?}" contained contains=zigEscape display
+syn region zigCharacter start="'" end="'\|$" skip="\\'" contains=zigEscape display extend
+syn region zigString start=+"+ end=+"\|$+ skip=+\\"+ contains=zigEscape,zigFormat display extend
+syn region zigString start="^\s*\\\\" end="$" display
+
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
 syntax match zigArrowCharacter display "\V->"
-
-syntax match zigCharacterInvalid display contained /b\?'\zs[\n\r\t']\ze'/
-syntax match zigCharacterInvalidUnicode display contained /b'\zs[^[:cntrl:][:graph:][:alnum:][:space:]]\ze'/
-syntax match zigCharacter /b'\([^\\]\|\\\(.\|x\x\{2}\)\)'/ contains=zigEscape,zigEscapeError,zigCharacterInvalid,zigCharacterInvalidUnicode
-syntax match zigCharacter /'\([^\\]\|\\\(.\|x\x\{2}\|u\x\{4}\|U\x\{6}\)\)'/ contains=zigEscape,zigEscapeUnicode,zigEscapeError,zigCharacterInvalid
 
 syntax region zigBlock start="{" end="}" transparent fold
 
 syntax region zigCommentLine start="//" end="$" contains=zigTodo,@Spell
 syntax region zigCommentLineDoc start="//[/!]/\@!" end="$" contains=zigTodo,@Spell
 
-syntax match zigMultilineStringPrefix /c\?\\\\/ contained containedin=zigMultilineString
-syntax region zigMultilineString matchgroup=zigMultilineStringDelimiter start="c\?\\\\" end="$" contains=zigMultilineStringPrefix display
-
 syntax keyword zigTodo contained TODO
-
-syntax region zigString matchgroup=zigStringDelimiter start=+c\?"+ skip=+\\\\\|\\"+ end=+"+ oneline contains=zigEscape,zigEscapeUnicode,zigEscapeError,@Spell
-syntax match zigEscapeError   display contained /\\./
-syntax match zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
-syntax match zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
 
 hi def link zigBoolean Boolean
 hi def link zigBuiltin Function
+hi def link zigCharacter Character
 hi def link zigConditional Conditional
 hi def link zigConstant Constant
+hi def link zigEscape SpecialChar
 hi def link zigException Exception
 hi def link zigFloat Float
+hi def link zigFormat SpecialChar
 hi def link zigKeyword Keyword
 hi def link zigNumber Number
 hi def link zigOperator Operator
 hi def link zigRepeat Repeat
 hi def link zigStorageClass StorageClass
+hi def link zigString String
 hi def link zigStructure Structure
 hi def link zigType Type
 
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
 highlight default link zigTodo Todo
-highlight default link zigString String
-highlight default link zigStringDelimiter String
-highlight default link zigMultilineString String
-highlight default link zigMultilineStringContent String
-highlight default link zigMultilineStringPrefix String
-highlight default link zigMultilineStringDelimiter Delimiter
-highlight default link zigCharacterInvalid Error
-highlight default link zigCharacterInvalidUnicode zigCharacterInvalid
-highlight default link zigCharacter Character
-highlight default link zigEscape Special
-highlight default link zigEscapeUnicode zigEscape
-highlight default link zigEscapeError Error
 highlight default link zigArrowCharacter zigOperator
 
 let b:current_syntax = "zig"
