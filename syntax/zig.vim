@@ -112,10 +112,12 @@ syn keyword zigType c_longdouble
 syn keyword zigType c_longlong c_ulonglong
 syn keyword zigType c_short c_ushort
 
+" Integer types of arbitrary bit-width.
+syn match zigType "\v<[iu]\d+>" display
+
 syn keyword zigBoolean true false
 syn keyword zigConstant null undefined
 
-syntax match zigType "\v<[iu][1-9]\d*>"
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
 syntax match zigArrowCharacter display "\V->"
 
