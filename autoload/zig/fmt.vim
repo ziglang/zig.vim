@@ -69,7 +69,12 @@ function! zig#fmt#Format() abort
 
   if err != 0
     echohl Error | echomsg "zig fmt returned error" | echohl None
-    return
+    if get(g:, 'zig_fmt_autoswitch', 1)
+      return
+    else
+      wincmd p
+      return
+    endif
   endif
 
   " Run the syntax highlighter on the updated content and recompute the folds if
