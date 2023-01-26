@@ -227,7 +227,7 @@ syntax match zigBinNumber display "\v<0b[01]%(_?[01])*"
 syntax match zigCharacterInvalid display contained /b\?'\zs[\n\r\t']\ze'/
 syntax match zigCharacterInvalidUnicode display contained /b'\zs[^[:cntrl:][:graph:][:alnum:][:space:]]\ze'/
 syntax match zigCharacter /b'\([^\\]\|\\\(.\|x\x\{2}\)\)'/ contains=zigEscape,zigEscapeError,zigCharacterInvalid,zigCharacterInvalidUnicode
-syntax match zigCharacter /'\([^\\]\|\\\(.\|x\x\{2}\|u\x\{4}\|U\x\{6}\)\)'/ contains=zigEscape,zigEscapeUnicode,zigEscapeError,zigCharacterInvalid
+syntax match zigCharacter /'\([^\\]\|\\\(.\|x\x\{2}\|u{\x\{1,6}}\)\)'/ contains=zigEscape,zigEscapeUnicode,zigEscapeError,zigCharacterInvalid
 
 syntax region zigBlock start="{" end="}" transparent fold
 
@@ -242,7 +242,7 @@ syntax keyword zigTodo contained TODO
 syntax region zigString matchgroup=zigStringDelimiter start=+c\?"+ skip=+\\\\\|\\"+ end=+"+ oneline contains=zigEscape,zigEscapeUnicode,zigEscapeError,@Spell
 syntax match zigEscapeError   display contained /\\./
 syntax match zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
-syntax match zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
+syntax match zigEscapeUnicode display contained /\\\(u{\x\{1,6}}\)/
 
 highlight default link zigDecNumber zigNumber
 highlight default link zigHexNumber zigNumber
