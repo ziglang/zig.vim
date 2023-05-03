@@ -35,6 +35,7 @@ let s:zig_syntax_keywords = {
     \ ,             "usize"
     \ ,             "comptime_int"
     \ ,             "comptime_float"
+    \ ,             "c_char"
     \ ,             "c_short"
     \ ,             "c_ushort"
     \ ,             "c_int"
