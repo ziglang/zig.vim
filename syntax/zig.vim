@@ -161,6 +161,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@setFloatMode"
     \ ,                  "@shlExact"
     \ ,                  "@This"
+    \ ,                  "@trap"
     \ ,                  "@hasDecl"
     \ ,                  "@hasField"
     \ ,                  "@shlWithOverflow"
