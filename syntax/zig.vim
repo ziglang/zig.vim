@@ -72,7 +72,8 @@ let s:zig_syntax_keywords = {
     \ ,                "try"
     \ ,                "test"
     \ ,                "pub"
-    \ ,                "usingnamespace"]
+    \ ,                "usingnamespace"
+    \ ,                "addrspace"]
     \ , 'zigExecution': ["return"
     \ ,                  "break"
     \ ,                  "continue"]
