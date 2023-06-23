@@ -98,6 +98,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@atomicStore"
     \ ,                  "@bitCast"
     \ ,                  "@breakpoint"
+    \ ,                  "@trap"
     \ ,                  "@alignCast"
     \ ,                  "@alignOf"
     \ ,                  "@cDefine"
