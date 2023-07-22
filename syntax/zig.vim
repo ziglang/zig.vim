@@ -130,6 +130,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@unionInit"
     \ ,                  "@frameAddress"
     \ ,                  "@import"
+    \ ,                  "@inComptime"
     \ ,                  "@newStackCall"
     \ ,                  "@asyncCall"
     \ ,                  "@ptrFromInt"
