@@ -202,7 +202,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@log"
     \ ,                  "@log2"
     \ ,                  "@log10"
-    \ ,                  "@fabs"
+    \ ,                  "@abs"
     \ ,                  "@floor"
     \ ,                  "@ceil"
     \ ,                  "@trunc"
