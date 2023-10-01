@@ -177,7 +177,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@floatFromInt"
     \ ,                  "@intFromFloat"
     \ ,                  "@intFromBool"
-    \ ,                  "@errSetCast"
+    \ ,                  "@errorCast"
     \ ,                  "@truncate"
     \ ,                  "@typeInfo"
     \ ,                  "@typeName"
