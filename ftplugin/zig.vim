@@ -44,7 +44,7 @@ if !exists('g:zig_std_dir') && exists('*json_decode') && executable('zig')
 endif
 
 if exists('g:zig_std_dir')
-    let &l:path = g:zig_std_dir . ',' . &l:path
+    let &l:path = &path . ',' . g:zig_std_dir
 endif
 
 let b:undo_ftplugin =
