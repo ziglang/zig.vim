@@ -254,9 +254,9 @@ highlight default link zigHexNumber zigNumber
 highlight default link zigOctNumber zigNumber
 highlight default link zigBinNumber zigNumber
 
-highlight default link zigBuiltinFn Statement
+"highlight default link zigBuiltinFn Statement
 highlight default link zigKeyword Keyword
-highlight default link zigType Type
+"highlight default link zigType Type
 highlight default link zigCommentLine Comment
 highlight default link zigCommentLineDoc Comment
 highlight default link zigDummyVariable Comment
@@ -286,9 +286,30 @@ highlight default link zigConditional Conditional
 highlight default link zigComparatorWord Keyword
 highlight default link zigRepeat Repeat
 highlight default link zigSpecial Special
-highlight default link zigVarDecl Function
+"highlight default link zigVarDecl Function
 highlight default link zigPreProc PreProc
 highlight default link zigException Exception
+
+syn match zigVarDecl     '[@]'
+syn match zigSymbol      '[,;]'
+syn match SpecialComment '[`:\.]'
+syn match Constant       '[{}\[\]()]'
+hi def link zigBuiltinFn Statement
+"hi def zigBuiltinFn ctermfg=DarkMagenta guifg=DarkMagenta
+hi def link zigVarDecl Keyword
+hi def link zigFunction Function
+hi def link zigTypedef Identifier
+hi def zigSymbol ctermfg=DarkGray guifg=DarkGray
+hi def zigType ctermfg=DarkCyan guifg=DarkCyan
+syn match zigType '\(\(\W\|^\)\(let\|const\|var\)\_s[^=]*\w\_s*)*\_s*:\_s*\W*\|^\W*\w\+:\W*\)\@<=\w\+'
+syn match zigTypedef  contains=zigTypedef "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
+syn match zigFunction    "\%(r#\)\=\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
+"syn keyword Keyword   def nextgroup=Function skipwhite skipempty
+syn keyword zigKeyword union struct enum namespace nextgroup=zigTypedef skipwhite skipempty
+syn keyword zigKeyword union, enum nextgroup=zigType skipwhite skipempty contained
+"syn match zigFunction  "\((\|@\)\@<!\w\w*\(\_s*(\)\@="
+"syn match zigFunction  "\w\(\w\)*\_s*("he=e-1,me=e-1
+syn match zigFunction  "[0-9a-zA-Z_@]*\(\w\)*\_s*("he=e-1,me=e-1
 
 delfunction s:syntax_keyword
 
