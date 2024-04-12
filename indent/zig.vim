@@ -55,7 +55,8 @@ function! GetZigIndent(lnum)
         if currentLine =~ '\v^\s*};$' || currentLine =~ '\v^\s*}$'
             return indent(prevLineNum) - 4
         endif
-        return indent(prevLineNum-1) - 4
+        "return indent(prevLineNum-1) - 4
+        return indent(prevLineNum-1)
     endif
     if currentLine =~ '\v^\s*},$'
         return indent(prevLineNum) - 4

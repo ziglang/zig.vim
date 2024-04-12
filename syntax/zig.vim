@@ -309,6 +309,7 @@ syn keyword zigKeyword enum nextgroup=zigType skipwhite skipempty contained
 syn match Repeat        "\([^\.]\.\)\@<=\w\w*\(\(\[.*\]\)*\_s*(\)\@!"
 syn match zigFunction   "[0-9a-zA-Z_@]*\w\w*\(\(\[.*\]\)*\_s*(\)\@="
 syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\(const\_s*\)\=\zs\w\w*\ze\(\[.*\]\)*\_s*\(\[.*\]\)*\_s*{'
+syn match SpecialComment '^\s*\\\\.*'
 
 
 delfunction s:syntax_keyword
