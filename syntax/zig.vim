@@ -301,13 +301,13 @@ hi def link zigFunction Function
 hi def link zigTypedef Identifier
 hi def zigSymbol ctermfg=DarkGray guifg=DarkGray
 hi def zigType ctermfg=DarkCyan guifg=DarkCyan
-syn match zigType '\(:\s*\*\=\s*\)\@<=\w\w*'
+syn match zigType '\([a-zA-Z]\w*\(\[.*\]\)*\s*:\s*\*\=\s*\(\[.*\]\s*\)*\)\@<=\w\w*'
 syn match zigTypedef  contains=zigTypedef "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
 syn match zigFunction    "\%(r#\)\=\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
 syn keyword zigKeyword union struct enum namespace nextgroup=zigTypedef skipwhite skipempty
 syn keyword zigKeyword enum nextgroup=zigType skipwhite skipempty contained
 syn match Repeat        "\([^\.]\.\)\@<=\w\w*\(\(\[.*\]\)*\_s*(\)\@!"
-syn match zigFunction   "[0-9a-zA-Z_@]*\w\w*\(\(\[.*\]\)*\_s*(\)\@="
+syn match zigFunction   "[@]*\w\w*\(\(\s*\[.*\]\)*\_s*(\)\@="
 syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\(const\_s*\)\=\zs\w\w*\ze\(\[.*\]\)*\_s*\(\[.*\]\)*\_s*{'
 syn match SpecialComment '^\s*\\\\.*'
 
