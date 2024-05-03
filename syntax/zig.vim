@@ -10,6 +10,24 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
+syn match zigBuiltinFn   '[@]'
+syn match zigSymbol      '[,;]'
+syn match SpecialComment '[`:\.]'
+syn match Constant       '[{}\[\]()]'
+
+"hi def zigBuiltinFn ctermfg=DarkMagenta guifg=DarkMagenta
+hi def link zigBuiltinFn Statement
+hi def link zigVarDecl Keyword
+hi def link zigFunction Function
+hi def link zigTypedef Identifier
+hi def zigSymbol ctermfg=DarkGray guifg=DarkGray
+hi def zigType ctermfg=DarkCyan guifg=DarkCyan
+
+syn match zigType '\([a-zA-Z]\w*\(\[.*\]\s*\)*:\s*\(\*\s*\)*\(const\s*\)*\(\[.*\]\s*\)*\(const\s*\)*\(\*\s*\)*\)\@<=\w\w*'
+syn match Repeat        "\([^\.]\.\)\@<=\w\w*\s*\(\(\[.*\]\s*\)*(\)\@!"
+syn match zigFunction   "@*\w\w*\(\(\s*\[.*\]\)*\_s*(\)\@="
+syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\(const\_s*\)\=\zs\w\w*\ze\(\[.*\]\)*\_s*\(\[.*\]\)*\_s*{'
+
 let s:zig_syntax_keywords = {
     \   'zigBoolean': ["true"
     \ ,                "false"]
@@ -221,10 +239,10 @@ call s:syntax_keyword(s:zig_syntax_keywords)
 
 syntax match zigType "\v<[iu][1-9]\d*>"
 syntax match zigOperator display "\V\[-+/*=^&?|!><%~]"
-syntax match zigArrowCharacter display "\V->"
+"syntax match zigArrowCharacter display "\V->"
 
-"                                     12_34  (. but not ..)? (12_34)?     (exponent  12_34)?
-syntax match zigDecNumber display   "\v<\d%(_?\d)*%(\.\.@!)?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
+"12_34  (. but not ..)? (12_34)?     (exponent  12_34)?
+syntax match zigDecNumber display "\v<\d%(_?\d)*%(\.\.@!)?%(\d%(_?\d)*)?%([eE][+-]?\d%(_?\d)*)?"
 syntax match zigHexNumber display "\v<0x\x%(_?\x)*%(\.\.@!)?%(\x%(_?\x)*)?%([pP][+-]?\d%(_?\d)*)?"
 syntax match zigOctNumber display "\v<0o\o%(_?\o)*"
 syntax match zigBinNumber display "\v<0b[01]%(_?[01])*"
@@ -248,6 +266,11 @@ syntax region zigString matchgroup=zigStringDelimiter start=+c\?"+ skip=+\\\\\|\
 syntax match zigEscapeError   display contained /\\./
 syntax match zigEscape        display contained /\\\([nrt\\'"]\|x\x\{2}\)/
 syntax match zigEscapeUnicode display contained /\\\(u\x\{4}\|U\x\{6}\)/
+
+syn match zigTypedef  contains=zigTypedef "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
+syn match zigFunction    "\%(r#\)\=\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
+syn keyword zigKeyword union struct enum namespace nextgroup=zigTypedef skipwhite skipempty
+syn keyword zigKeyword enum nextgroup=zigType skipwhite skipempty contained
 
 highlight default link zigDecNumber zigNumber
 highlight default link zigHexNumber zigNumber
@@ -279,7 +302,8 @@ highlight default link zigConstant Constant
 highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 highlight default link zigOperator Operator
-highlight default link zigStructure Structure
+"highlight default link zigStructure Structure
+highlight default link zigStructure Keyword
 highlight default link zigExecution Special
 highlight default link zigMacro Macro
 highlight default link zigConditional Conditional
@@ -289,28 +313,6 @@ highlight default link zigSpecial Special
 "highlight default link zigVarDecl Function
 highlight default link zigPreProc PreProc
 highlight default link zigException Exception
-
-syn match zigBuiltinFn   '[@]'
-syn match zigSymbol      '[,;]'
-syn match SpecialComment '[`:\.]'
-syn match Constant       '[{}\[\]()]'
-"hi def zigBuiltinFn ctermfg=DarkMagenta guifg=DarkMagenta
-hi def link zigBuiltinFn Statement
-hi def link zigVarDecl Keyword
-hi def link zigFunction Function
-hi def link zigTypedef Identifier
-hi def zigSymbol ctermfg=DarkGray guifg=DarkGray
-hi def zigType ctermfg=DarkCyan guifg=DarkCyan
-syn match zigType '\([a-zA-Z]\w*\(\[.*\]\)*\s*:\s*\*\=\s*\(\[.*\]\s*\)*\)\@<=\w\w*'
-syn match zigTypedef  contains=zigTypedef "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
-syn match zigFunction    "\%(r#\)\=\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
-syn keyword zigKeyword union struct enum namespace nextgroup=zigTypedef skipwhite skipempty
-syn keyword zigKeyword enum nextgroup=zigType skipwhite skipempty contained
-syn match Repeat        "\([^\.]\.\)\@<=\w\w*\(\(\[.*\]\)*\_s*(\)\@!"
-syn match zigFunction   "[@]*\w\w*\(\(\s*\[.*\]\)*\_s*(\)\@="
-syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\(const\_s*\)\=\zs\w\w*\ze\(\[.*\]\)*\_s*\(\[.*\]\)*\_s*{'
-syn match SpecialComment '^\s*\\\\.*'
-
 
 delfunction s:syntax_keyword
 
