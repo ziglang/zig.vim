@@ -23,10 +23,10 @@ hi def link zigTypedef Identifier
 hi def zigSymbol ctermfg=DarkGray guifg=DarkGray
 hi def zigType ctermfg=DarkCyan guifg=DarkCyan
 
-syn match zigType '\([a-zA-Z]\w*\(\[.*\]\s*\)*:\s*\(\*\s*\)*\(const\s*\)*\(\[.*\]\s*\)*\(const\s*\)*\(\*\s*\)*\)\@<=\w\w*'
+syn match zigType '\(\([^0-9a-zA-Z\.:]break\s\+\)\@<!:\s*\(\(\(\[.*\]\)\|\({.*}\)\|\(\w\+\)\|\(\*\|?\|!\)\)\s*\)*\)\@<=\w\w*'
 syn match Repeat        "\([^\.]\.\)\@<=\w\w*\s*\(\(\[.*\]\s*\)*(\)\@!"
 syn match zigFunction   "@*\w\w*\(\(\s*\[.*\]\)*\_s*(\)\@="
-syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\(const\_s*\)\=\zs\w\w*\ze\(\[.*\]\)*\_s*\(\[.*\]\)*\_s*{'
+syn match zigType       '(\=\_s*\(\[.*\]\_s*\)*\zs\w\w*\ze\(\[.*\]\s*\)*\_s*{'
 
 let s:zig_syntax_keywords = {
     \   'zigBoolean': ["true"
