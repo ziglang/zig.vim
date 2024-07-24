@@ -112,6 +112,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@compileLog"
     \ ,                  "@constCast"
     \ ,                  "@ctz"
+    \ ,                  "@disableInstrumentation"
     \ ,                  "@popCount"
     \ ,                  "@divExact"
     \ ,                  "@divFloor"
