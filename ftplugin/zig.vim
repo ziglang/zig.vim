@@ -36,10 +36,17 @@ endif
 let &l:define='\v(<fn>|<const>|<var>|^\s*\#\s*define)'
 
 if !exists('g:zig_std_dir') && exists('*json_decode') && executable('zig')
-    silent let s:env = system('zig env')
-    if v:shell_error == 0
-        let g:zig_std_dir = json_decode(s:env)['std_dir']
+    let s:env = system('zig env --plain')
+    if s:env !~ '^{'
+        " Remove any leading garbage which might be forcefully inserted by the shell
+        let s:env = substitute(s:env, '[^{]*\({.*}\)[^}]*', '\1', '')
     endif
+    try
+        let g:zig_std_dir = json_decode(s:env)['std_dir']
+    catch
+        echom "Error parsing Zig env output: " . v:exception
+        echom "Cleaned output: " . s:env
+    endtry
     unlet! s:env
 endif
 
