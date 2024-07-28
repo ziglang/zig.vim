@@ -16,9 +16,9 @@ endif
 
 " a subcommand must be provided for the this compiler (test, build-exe, etc)
 if has('patch-7.4.191')
-    CompilerSet makeprg=zig\ \$*\ \%:S
+    CompilerSet makeprg=zig\ $*\ %:S
 else
-    CompilerSet makeprg=zig\ \$*\ \"%\"
+    CompilerSet makeprg=zig\ $*\ \"%\"
 endif
 
 " TODO: improve errorformat as needed.
