@@ -44,8 +44,7 @@ if !exists('g:zig_std_dir') && exists('*json_decode') && executable('zig')
     try
         let g:zig_std_dir = json_decode(s:env)['std_dir']
     catch
-        echom "Error parsing Zig env output: " . v:exception
-        echom "Cleaned output: " . s:env
+        echom "Error parsing zig env output: " . v:exception
     endtry
     unlet! s:env
 endif
