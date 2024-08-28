@@ -154,7 +154,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@intFromPtr"
     \ ,                  "@rem"
     \ ,                  "@returnAddress"
-    \ ,                  "@setCold"
+    \ ,                  "@branchHint"
     \ ,                  "@Type"
     \ ,                  "@shuffle"
     \ ,                  "@reduce"
