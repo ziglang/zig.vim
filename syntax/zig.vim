@@ -128,6 +128,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@fence"
     \ ,                  "@fieldParentPtr"
     \ ,                  "@field"
+    \ ,                  "@FieldType"
     \ ,                  "@unionInit"
     \ ,                  "@frameAddress"
     \ ,                  "@import"
