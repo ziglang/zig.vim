@@ -14,6 +14,10 @@ function! zig#fmt#Format() abort
   endif
 
   let cmdline = 'zig fmt --stdin --ast-check'
+  if expand('%:e') is? 'zon'
+    let cmdline = cmdline . ' --zon'
+  endif
+
   let current_buf = bufnr('')
 
   " The formatted code is output on stdout, the errors go on stderr.
@@ -22,18 +26,7 @@ function! zig#fmt#Format() abort
   else
     silent let out = split(system(cmdline, current_buf))
   endif
-  if len(out) == 1
-    if out[0] == "error: unrecognized parameter: '--ast-check'"
-      let cmdline = 'zig fmt --stdin'
-      if exists('*systemlist')
-        silent let out = systemlist(cmdline, current_buf)
-      else
-        silent let out = split(system(cmdline, current_buf))
-      endif
-    endif
-  endif
   let err = v:shell_error
-
 
   if err == 0
     " remove undo point caused via BufWritePre.
