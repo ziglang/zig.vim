@@ -85,14 +85,15 @@ let s:zig_syntax_keywords = {
     \ ,              "resume"
     \ ,              "export"
     \ ,              "extern"]
-    \ , 'zigPreProc': ["catch"
-    \ ,                "inline"
-    \ ,                "noinline"
+    \ , 'zigPreProc': ["addrspace"
+    \ ,                "align"
     \ ,                "asm"
     \ ,                "callconv"
-    \ ,                "noalias"]
-    \ , 'zigBuiltinFn': ["align"
-    \ ,                  "@addrSpaceCast"
+    \ ,                "catch"
+    \ ,                "inline"
+    \ ,                "noalias"
+    \ ,                "noinline"]
+    \ , 'zigBuiltinFn': ["@addrSpaceCast"
     \ ,                  "@addWithOverflow"
     \ ,                  "@alignCast"
     \ ,                  "@alignOf"
