@@ -157,6 +157,7 @@ let s:zig_syntax_keywords = {
     \ ,                  "@intFromPtr"
     \ ,                  "@max"
     \ ,                  "@memcpy"
+    \ ,                  "@memmove"
     \ ,                  "@memset"
     \ ,                  "@min"
     \ ,                  "@wasmMemorySize"
