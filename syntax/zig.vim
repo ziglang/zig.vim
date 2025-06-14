@@ -12,7 +12,7 @@ set cpo&vim
 
 syntax keyword zigBoolean true false
 syntax keyword zigNull null
-syntax keyword zigType bool void type anytype anyerror anyframe volatile linksection noreturn allowzero anyopaque
+syntax keyword zigType bool void type anytype anyerror anyframe noreturn anyopaque
 syntax keyword zigType i0 u0 isize usize comptime_int comptime_float
 syntax keyword zigType f16 f32 f64 f80 f128
 syntax keyword zigType c_char c_short c_ushort c_int c_uint c_long c_ulong c_longlong c_ulonglong c_longdouble
@@ -22,13 +22,12 @@ syntax keyword zigRepeat while for
 syntax keyword zigComparatorWord and or orelse
 syntax keyword zigStructure struct enum union error packed opaque
 syntax keyword zigException error
-syntax keyword zigStorageClass
+syntax keyword zigStorageClass addrspace align allowzero callconv extern export linksection threadlocal volatile
 syntax keyword zigDummyVariable _
 syntax keyword zigKeyword var const fn try test pub comptime
 syntax keyword zigStatement return break continue asm defer errdefer
-syntax keyword zigMacro export extern
 syntax keyword zigAsync nosuspend suspend resume
-syntax keyword zigPreProc addrspace align callconv catch inline noalias noinline threadlocal
+syntax keyword zigPreProc catch inline noalias noinline
 syntax keyword zigBuiltinFn @addrSpaceCast @addWithOverflow @alignCast @alignOf @as @atomicLoad @atomicRmw @atomicStore @bitCast @bitOffsetOf @bitSizeOf @branchHint @breakpoint @mulAdd @byteSwap @bitReverse @offsetOf @call @cDefine @cImport @cInclude @clz @cmpxchgStrong @cmpxchgWeak @compileError @compileLog @constCast @ctz @cUndef @cVaArg @cVaCopy @cVaEnd @cVaStart @disableInstrumentation @disableIntrinsics @divExact @divFloor @divTrunc @embedFile @enumFromInt @errorFromInt @errorName @errorReturnTrace @errorCast @export @extern @field @fieldParentPtr @FieldType @floatCast @floatFromInt @frameAddress @hasDecl @hasField @import @inComptime @intCast @intFromBool @intFromEnum @intFromError @intFromFloat @intFromPtr @max @memcpy @memmove @memset @min @wasmMemorySize @wasmMemoryGrow @mod @mulWithOverflow @panic @popCount @prefetch @ptrCast @ptrFromInt @rem @returnAddress @select @setEvalBranchQuota @setFloatMode @setRuntimeSafety @shlExact @shlWithOverflow @shrExact @shuffle @sizeOf @splat @reduce @src @sqrt @sin @cos @tan @exp @exp2 @log @log2 @log10 @abs @floor @ceil @trunc @round @subWithOverflow @tagName @This @trap @truncate @Type @typeInfo @typeName @TypeOf @unionInit @Vector @volatileCast @workGroupId @workGroupSize @workItemId
 
 syntax match zigType "\v<[iu][1-9]\d*>"
@@ -92,12 +91,12 @@ highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 highlight default link zigOperator Operator
 highlight default link zigStructure Structure
-highlight default link zigMacro Macro
 highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
 highlight default link zigComparatorWord zigStatement
 highlight default link zigRepeat Repeat
 highlight default link zigSpecial Special
+highlight default link zigStorageClass StorageClass
 highlight default link zigAsync Keyword
 highlight default link zigPreProc PreProc
 highlight default link zigException Exception
