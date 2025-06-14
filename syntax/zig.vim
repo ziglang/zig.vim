@@ -86,7 +86,7 @@ highlight default link zigEscape Special
 highlight default link zigEscapeUnicode zigEscape
 highlight default link zigEscapeError Error
 highlight default link zigBoolean Boolean
-highlight default link zigNull Boolean
+highlight default link zigNull Constant
 highlight default link zigConstant Constant
 highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
