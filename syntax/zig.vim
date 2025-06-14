@@ -21,14 +21,14 @@ syntax keyword zigConditional if else switch
 syntax keyword zigRepeat while for
 syntax keyword zigComparatorWord and or orelse
 syntax keyword zigStructure struct enum union error packed opaque
-syntax keyword zigException error
+syntax keyword zigException catch error try
 syntax keyword zigAccessModifier pub
 syntax keyword zigStorageClass addrspace align allowzero callconv extern export linksection threadlocal volatile
 syntax keyword zigDummyVariable _
-syntax keyword zigKeyword var const fn try test comptime
+syntax keyword zigKeyword var const fn test comptime
 syntax keyword zigStatement return break continue asm defer errdefer
 syntax keyword zigAsync nosuspend suspend resume
-syntax keyword zigPreProc catch inline noalias noinline
+syntax keyword zigPreProc inline noalias noinline
 syntax keyword zigBuiltinFn @addrSpaceCast @addWithOverflow @alignCast @alignOf @as @atomicLoad @atomicRmw @atomicStore @bitCast @bitOffsetOf @bitSizeOf @branchHint @breakpoint @mulAdd @byteSwap @bitReverse @offsetOf @call @cDefine @cImport @cInclude @clz @cmpxchgStrong @cmpxchgWeak @compileError @compileLog @constCast @ctz @cUndef @cVaArg @cVaCopy @cVaEnd @cVaStart @disableInstrumentation @disableIntrinsics @divExact @divFloor @divTrunc @embedFile @enumFromInt @errorFromInt @errorName @errorReturnTrace @errorCast @export @extern @field @fieldParentPtr @FieldType @floatCast @floatFromInt @frameAddress @hasDecl @hasField @import @inComptime @intCast @intFromBool @intFromEnum @intFromError @intFromFloat @intFromPtr @max @memcpy @memmove @memset @min @wasmMemorySize @wasmMemoryGrow @mod @mulWithOverflow @panic @popCount @prefetch @ptrCast @ptrFromInt @rem @returnAddress @select @setEvalBranchQuota @setFloatMode @setRuntimeSafety @shlExact @shlWithOverflow @shrExact @shuffle @sizeOf @splat @reduce @src @sqrt @sin @cos @tan @exp @exp2 @log @log2 @log10 @abs @floor @ceil @trunc @round @subWithOverflow @tagName @This @trap @truncate @Type @typeInfo @typeName @TypeOf @unionInit @Vector @volatileCast @workGroupId @workGroupSize @workItemId
 
 syntax match zigType "\v<[iu][1-9]\d*>"
