@@ -22,9 +22,10 @@ syntax keyword zigRepeat while for
 syntax keyword zigComparatorWord and or orelse
 syntax keyword zigStructure struct enum union error packed opaque
 syntax keyword zigException error
+syntax keyword zigAccessModifier pub
 syntax keyword zigStorageClass addrspace align allowzero callconv extern export linksection threadlocal volatile
 syntax keyword zigDummyVariable _
-syntax keyword zigKeyword var const fn try test pub comptime
+syntax keyword zigKeyword var const fn try test comptime
 syntax keyword zigStatement return break continue asm defer errdefer
 syntax keyword zigAsync nosuspend suspend resume
 syntax keyword zigPreProc catch inline noalias noinline
@@ -96,6 +97,7 @@ highlight default link zigConditional Conditional
 highlight default link zigComparatorWord zigStatement
 highlight default link zigRepeat Repeat
 highlight default link zigSpecial Special
+highlight default link zigAccessModifier StorageClass
 highlight default link zigStorageClass StorageClass
 highlight default link zigAsync Keyword
 highlight default link zigPreProc PreProc
