@@ -66,7 +66,7 @@ highlight default link zigHexNumber zigNumber
 highlight default link zigOctNumber zigNumber
 highlight default link zigBinNumber zigNumber
 
-highlight default link zigBuiltinFn Statement
+highlight default link zigBuiltinFn Function
 highlight default link zigKeyword Keyword
 highlight default link zigType Type
 highlight default link zigCommentLine Comment
