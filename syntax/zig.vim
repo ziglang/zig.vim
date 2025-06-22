@@ -25,9 +25,9 @@ syntax keyword zigException error
 syntax keyword zigStorageClass
 syntax keyword zigDummyVariable _
 syntax keyword zigKeyword var const fn try test pub comptime
-syntax keyword zigExecution return break continue
-syntax keyword zigMacro defer errdefer nosuspend suspend resume export extern
-syntax keyword zigPreProc addrspace align asm callconv catch inline noalias noinline threadlocal
+syntax keyword zigStatement return break continue asm defer errdefer
+syntax keyword zigMacro nosuspend suspend resume export extern
+syntax keyword zigPreProc addrspace align callconv catch inline noalias noinline threadlocal
 syntax keyword zigBuiltinFn @addrSpaceCast @addWithOverflow @alignCast @alignOf @as @atomicLoad @atomicRmw @atomicStore @bitCast @bitOffsetOf @bitSizeOf @branchHint @breakpoint @mulAdd @byteSwap @bitReverse @offsetOf @call @cDefine @cImport @cInclude @clz @cmpxchgStrong @cmpxchgWeak @compileError @compileLog @constCast @ctz @cUndef @cVaArg @cVaCopy @cVaEnd @cVaStart @disableInstrumentation @disableIntrinsics @divExact @divFloor @divTrunc @embedFile @enumFromInt @errorFromInt @errorName @errorReturnTrace @errorCast @export @extern @field @fieldParentPtr @FieldType @floatCast @floatFromInt @frameAddress @hasDecl @hasField @import @inComptime @intCast @intFromBool @intFromEnum @intFromError @intFromFloat @intFromPtr @max @memcpy @memmove @memset @min @wasmMemorySize @wasmMemoryGrow @mod @mulWithOverflow @panic @popCount @prefetch @ptrCast @ptrFromInt @rem @returnAddress @select @setEvalBranchQuota @setFloatMode @setRuntimeSafety @shlExact @shlWithOverflow @shrExact @shuffle @sizeOf @splat @reduce @src @sqrt @sin @cos @tan @exp @exp2 @log @log2 @log10 @abs @floor @ceil @trunc @round @subWithOverflow @tagName @This @trap @truncate @Type @typeInfo @typeName @TypeOf @unionInit @Vector @volatileCast @workGroupId @workGroupSize @workItemId
 
 syntax match zigType "\v<[iu][1-9]\d*>"
@@ -91,10 +91,10 @@ highlight default link zigNumber Number
 highlight default link zigArrowCharacter zigOperator
 highlight default link zigOperator Operator
 highlight default link zigStructure Structure
-highlight default link zigExecution Special
 highlight default link zigMacro Macro
+highlight default link zigStatement Statement
 highlight default link zigConditional Conditional
-highlight default link zigComparatorWord Keyword
+highlight default link zigComparatorWord zigStatement
 highlight default link zigRepeat Repeat
 highlight default link zigSpecial Special
 highlight default link zigPreProc PreProc
