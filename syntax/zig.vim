@@ -71,16 +71,13 @@ let s:zig_syntax_keywords = {
     \ , 'zigKeyword': ["fn"
     \ ,                "try"
     \ ,                "test"
-    \ ,                "pub"
-    \ ,                "usingnamespace"]
+    \ ,                "pub"]
     \ , 'zigExecution': ["return"
     \ ,                  "break"
     \ ,                  "continue"]
     \ , 'zigMacro': ["defer"
     \ ,              "errdefer"
-    \ ,              "async"
     \ ,              "nosuspend"
-    \ ,              "await"
     \ ,              "suspend"
     \ ,              "resume"
     \ ,              "export"
