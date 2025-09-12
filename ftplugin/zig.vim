@@ -50,12 +50,13 @@ endif
 let b:undo_ftplugin =
     \ 'setl isk< et< ts< sts< sw< fo< sua< mp< com< cms< inex< inc< pa<'
 
-augroup vim-zig
-    autocmd! * <buffer>
-    autocmd BufWritePre <buffer> if get(g:, 'zig_fmt_autosave', 1) | call zig#fmt#Format() | endif
-augroup END
-
-let b:undo_ftplugin .= '|au! vim-zig * <buffer>'
+if get(g:, 'zig_fmt_autosave', 0)
+    augroup vim-zig
+        autocmd! * <buffer>
+        autocmd BufWritePre <buffer> call zig#fmt#Format()
+    augroup END
+    let b:undo_ftplugin .= '|au! vim-zig * <buffer>'
+endif
 
 let &cpo = s:cpo_orig
 unlet s:cpo_orig
