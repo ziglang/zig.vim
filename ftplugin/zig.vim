@@ -14,10 +14,11 @@ compiler zig_build
 setlocal iskeyword+=@-@
 
 " Recomended code style, no tabs and 4-space indentation
-setlocal expandtab
-setlocal tabstop=8
-setlocal softtabstop=4
-setlocal shiftwidth=4
+if get(g:, 'zig_recommended_style', 1)
+    setlocal expandtab
+    setlocal softtabstop=4
+    setlocal shiftwidth=4
+endif
 
 setlocal formatoptions-=t formatoptions+=croql
 
