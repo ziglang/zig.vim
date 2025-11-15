@@ -21,7 +21,7 @@ setlocal shiftwidth=4
 
 setlocal formatoptions-=t formatoptions+=croql
 
-setlocal suffixesadd=.zig,.zir
+setlocal suffixesadd=.zig,.zon
 
 if has('comments')
     setlocal comments=:///,://!,://
